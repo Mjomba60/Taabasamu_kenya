@@ -110,7 +110,7 @@ export function Footer() {
                     <Link to='/faqs'>FAQs</Link>
                 </div>
             </div>
-
+            <hr />
             <p className="copyrightxtcontainer">
                 Copyright © 2025 Friends of TaaBasamu &nbsp;a registered 501(c)3
                 <br />
@@ -455,6 +455,7 @@ export function PromotionCarousel() {
     )
 }
 
+// 
 export function RouteNewsLetterContainer() {
 
     return (
