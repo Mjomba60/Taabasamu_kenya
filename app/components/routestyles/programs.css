@@ -40,7 +40,7 @@
             margin: 0.5em 0em;
         }
 
-        button{
+        button {
             background-color: var(--secondary-blue-color);
             color: var(--background-main-color);
         }
@@ -129,6 +129,13 @@
     border-radius: 0.7em;
     text-align: start;
 
+    .projectitemmaintxtnbtncontainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     img {
         height: 35vh;
         width: 100%;
@@ -155,13 +162,14 @@
     }
 
     button {
-        width: 100%;
+        width: fit-content;
         text-align: center;
         padding: 0.7em 1em;
         border-radius: 0.4em;
         background-color: var(--text-main-color);
         color: var(--background-main-color);
         display: none;
+        box-shadow: 1px 1px 3px var(--text-main-color);
     }
 
     &:hover {
