@@ -16,8 +16,8 @@ export default function Index() {
       <IntroductorySection/>
       <HomeAboutSection/>
       <HomeProgramSection/>
-      <HomeGetInvolvedSection/>
       <Testimonials/>
+      <HomeGetInvolvedSection/>
       {/* <HomeNewsEvents/> */}
     </div>
   );
