@@ -75,8 +75,8 @@ export default function App() {
     <div className="taabasamubody">
       <Header />
       <Outlet />
-      <PromotionCarousel />
       <RouteNewsLetterContainer />
+      <PromotionCarousel />
       <DonateQrCode />
       <Footer />
     </div>
