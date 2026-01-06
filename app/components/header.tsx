@@ -1,8 +1,8 @@
 import { Link, NavLink, useNavigate } from "@remix-run/react";
 import taabasamulogo from '../images/taaabasamu2-removebgv2.png'
 import fionanobg from '../images/tabasamupandas.jpg'
-import soma from '../images/tabasammuabout.webp'
-import msomi from '../images/soma.png'
+import soma from '../images/taabasamunewabout.webp'
+import msomi from '../images/fionandimv2.png'
 // import donationhands from '../images/tabasamuhomehero.webp'
 import { FacebookIcon, InstagramIcon, LinkedInIcon, MediumIcon, TwitterIcon } from "./icons";
 import { donate_assist_txt, homeherodata, homeprogramsstats, promotext, Stats, user_testimonials } from './componentdata/homehero'
@@ -112,9 +112,8 @@ export function Footer() {
             </div>
             <hr />
             <p className="copyrightxtcontainer">
-                Copyright © 2025 Friends of TaaBasamu &nbsp;a registered 501(c)3
-                <br />
-                All Rights Reserved.
+                Copyright © 2025 Friends of TaaBasamu &nbsp;a registered 501(c)3 
+                <strong> All Rights Reserved.</strong>
             </p>
 
             {/* Logo & newsletter form */}
@@ -455,13 +454,40 @@ export function PromotionCarousel() {
     )
 }
 
-// 
+// Update layout for newsletter
 export function RouteNewsLetterContainer() {
 
     return (
-        <div className="routenewslettercontainer routesmainsectionlayoutcontainer">
-            <h3>Get Taabasamu Updates</h3>
-            <p>{`We would love to hear from you, with this in mind, we would also like to keep you updated through our news letter.`}</p>
+        <div className="routenewslettercontainer routesmainsectionlayoutcontainer"
+            data-aos='fade-up'
+            data-aos-delay='600'
+            data-aos-duration='800'
+            data-aos-easing='ease-in'>
+
+            <div className="newslettertxtnsocialbtnscontainer">
+                <h3>Get Taabasamu Updates</h3>
+                <p>{`We would love to hear from you and you from us, with this in mind, we would also like to keep you updated through our socials and news letter.`}</p>
+                <div className="herosocialscontainer">
+
+                    <strong><em>Our Socials:</em></strong>
+
+                    <a href="/">
+                        <FacebookIcon />
+                    </a>
+                    <a href="/">
+                        <TwitterIcon />
+                    </a>
+                    <a href="/">
+                        <LinkedInIcon />
+                    </a>
+                    <a href="/">
+                        <MediumIcon />
+                    </a>
+                    <a href="/">
+                        <InstagramIcon/>
+                    </a>
+                </div>
+            </div>
 
             <form className="newsheroformaincontainer">
                 <h4>Subscribe to Our News Letter</h4>
@@ -470,28 +496,15 @@ export function RouteNewsLetterContainer() {
                     <input type="email" placeholder="Enter your email to subscribe to our news letter" />
                 </fieldset>
                 <button>Subscribe</button>
-                <div className="alternativeconnectcontainer">
+                {/* <div className="alternativeconnectcontainer">
                     <hr />
                     <p>Or</p>
                     <hr />
                 </div>
                 <div className="mynewsherosocialscontainer">
                     <h4>Talk to Us through Our Socials</h4>
-                    <div className="herosocialscontainer">
-                        <a href="/">
-                            <FacebookIcon />
-                        </a>
-                        <a href="/">
-                            <TwitterIcon />
-                        </a>
-                        <a href="/">
-                            <LinkedInIcon />
-                        </a>
-                        <a href="/">
-                            <MediumIcon />
-                        </a>
-                    </div>
-                </div>
+                    
+                </div> */}
             </form>
         </div>
     )

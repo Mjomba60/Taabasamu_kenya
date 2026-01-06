@@ -159,7 +159,7 @@ body {
     color: var(--background-main-color);
 
     >p {
-        margin: 0.7em 0em;
+        margin: 0em 0em;
         text-align: center;
     }
 
@@ -784,7 +784,7 @@ body {
         flex-direction: column;
         align-items: center;
 
-        img{
+        img {
             height: 4em;
             aspect-ratio: 1/1;
             width: auto;
@@ -943,11 +943,9 @@ body {
 #involvment {
     display: flex;
     gap: 1em;
-    background-color: var(--secondary-blue-color);
-
-    >img {
-        box-shadow: -6px -5px 5px 1px var(--text-main-color);
-    }
+    background-color: var(--item-secondary-conatiner);
+    padding-bottom: 0em;
+    padding-top: 2em;
 
     button {
         box-shadow: 0px 1px 4px 1px var(--text-main-color);
@@ -1405,35 +1403,33 @@ body {
     }
 }
 
-.promoslider{
+.promoslider {
     overflow: clip;
 }
 
 .routenewslettercontainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     background-color: var(--background-main-color);
     color: var(--text-main-color);
     align-items: center;
     padding: 3em 7em;
+    gap: 1em;
 
     .newsheroformaincontainer {
         padding: 1em;
         display: flex;
         flex-direction: column;
-        width: 35%;
+        width: 45%;
         background-color: var(--item-secondary-conatiner);
         color: var(--text-main-color);
         border-radius: 0.7em;
-        aspect-ratio: 1 / 1;
         box-shadow: 3px 3px 9px 2px var(--text-main-color);
-        justify-content: space-around;
-        align-items: center;
+        gap: 0.4em;
 
         h4 {
             font-weight: 600;
             margin: 0.9em 0em;
-            text-align: center;
         }
 
         >fieldset {
@@ -1460,6 +1456,7 @@ body {
             box-shadow: 1px 1px 5px 1px var(--text-main-color);
             background-color: var(--text-main-color);
             color: var(--background-main-color);
+            align-self: flex-end;
         }
 
         .alternativeconnectcontainer {
@@ -1485,30 +1482,32 @@ body {
             display: flex;
             flex-direction: column;
             align-self: center;
+        }
+    }
+}
 
-            .herosocialscontainer {
-                display: flex;
-                flex-direction: row;
-                align-self: center;
-                gap: 1em;
+.herosocialscontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
 
-                a {
-                    padding: 0.4em;
-                    border-radius: 100%;
+    a {
+        padding: 1em;
+        border-radius: 100%;
 
-                    &:hover {
-                        background-color: var(--text-main-color);
-                        color: var(--background-main-color);
-                    }
+        &:hover {
+            background-color: var(--text-main-color);
+            color: var(--background-main-color);
+        }
 
-                    svg {
-                        color: inherit;
-                        width: 1.4em;
-                        aspect-ratio: 1/1;
-                        height: auto;
-                    }
-                }
-            }
+        svg {
+            color: inherit;
+            width: 1.4em;
+            aspect-ratio: 1/1;
+            height: auto;
         }
     }
 }
@@ -1531,7 +1530,7 @@ body {
     }
 }
 
-.buttonmain{
+.buttonmain {
     background-color: var(--secondary-blue-color);
     color: var(--background-main-color);
 }
@@ -1559,12 +1558,12 @@ body {
     }
 }
 
-.mainqrcodensharecontainer{
+.mainqrcodensharecontainer {
     display: flex;
     flex-direction: row;
 }
 
-.assistivelink{
+.assistivelink {
     color: var(--secondary-blue-color);
 }
 
