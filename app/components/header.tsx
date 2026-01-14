@@ -1,7 +1,7 @@
 import { Link, NavLink, useNavigate } from "@remix-run/react";
 import taabasamulogo from '../images/taaabasamu2-removebgv2.png'
-import fionanobg from '../images/tabasamupandas.jpg'
-import soma from '../images/taabasamunewabout.webp'
+import fionanobg from '../images/newsample3.png'
+import soma from '../images/MyTeam.png'
 import msomi from '../images/fionandimv2.png'
 // import donationhands from '../images/tabasamuhomehero.webp'
 import { FacebookIcon, InstagramIcon, LinkedInIcon, MediumIcon, TwitterIcon } from "./icons";
@@ -9,8 +9,9 @@ import { donate_assist_txt, homeherodata, homeprogramsstats, promotext, Stats, u
 import Slider from "react-slick";
 import { UIEvent } from "react";
 import QRCode from "react-qr-code";
-import { EmailIcon, EmailShareButton, FacebookMessengerIcon, FacebookShareButton, LinkedinIcon, LinkedinShareButton, WhatsappIcon, WhatsappShareButton } from "react-share";
+import { EmailIcon, EmailShareButton, FacebookIcon as FacebookShareIcon, FacebookShareButton, LinkedinIcon, LinkedinShareButton, WhatsappIcon, WhatsappShareButton } from "react-share";
 import { ClientOnly } from "remix-utils/client-only";
+import { assistivetext } from "./componentdata/donations";
 
 export function Header() {
 
@@ -516,6 +517,7 @@ export function DonateQrCode() {
 
 
     const qr_url = 'https://elewa.netlify.app/'
+    const iconsize = '3em'
 
     return (
         <div className="donationqrcodecontainer" id="donateqr" popover='auto'>
@@ -532,21 +534,33 @@ export function DonateQrCode() {
             <h6><strong><em>Invite others to Donate through :</em></strong></h6>
 
             <div className="mainsharecontainer">
-                <EmailShareButton url={qr_url}>
-                    <EmailIcon />
-                    Email
+                <EmailShareButton
+                    url={qr_url}
+                    subject="Taabasamu Donation"
+                    body={assistivetext}>
+                    <EmailIcon
+                    round={false}
+                    size={iconsize}/>
+                    {/* Email */}
                 </EmailShareButton>
-                <WhatsappShareButton url={qr_url}>
-                    <WhatsappIcon />
-                    Whatsapp
+                <WhatsappShareButton
+                    url={qr_url}
+                    title="Taabasamu donatiion">
+                    <WhatsappIcon size={iconsize}/>
+                    {/* Whatsapp */}
                 </WhatsappShareButton>
-                <FacebookShareButton url={qr_url}>
-                    <FacebookMessengerIcon />
-                    Facebook
+                <FacebookShareButton
+                    url={qr_url}
+                    hashtag="#Taabasamu_smile_givers">
+                    <FacebookShareIcon size={iconsize}/>
+                    {/* Facebook */}
                 </FacebookShareButton>
-                <LinkedinShareButton url={qr_url}>
-                    <LinkedinIcon />
-                    LinkedIn
+                <LinkedinShareButton
+                    url={qr_url}
+                    title="Tabasamu donations"
+                    summary={assistivetext}>
+                    <LinkedinIcon size={iconsize}/>
+                    {/* LinkedIn */}
                 </LinkedinShareButton>
             </div>
 

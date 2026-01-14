@@ -635,7 +635,7 @@ body {
     color: var(--text-main-color);
 
     >img {
-        box-shadow: -6px -5px 5px 1px var(--text-main-color);
+        box-shadow: inset -6px -5px 5px 1px var(--text-main-color);
     }
 
     button {
@@ -1552,6 +1552,7 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
+    box-shadow: 0px 0px 7px 1px var(--text-main-color);
 
     &::backdrop {
         backdrop-filter: blur(0.5em);
@@ -1560,6 +1561,7 @@ body {
     .buttonmain{
         align-self: center;
         background-color: var(--text-main-color);
+        box-shadow: 1px 1px 4px 1px var(--text-main-color);
     }
 }
 
@@ -1602,6 +1604,9 @@ body {
     align-items: center;
     justify-content: space-around;
     padding: 0.8em;
+    align-self: center;
+    box-shadow: inset 0px 0px 4px 1px var(--text-main-color);
+    border-radius: 0.5em;
 }
 
 .qrassistbtnscontainer {
@@ -1636,7 +1641,7 @@ body {
         align-items: center;
         gap: 1em;
         overflow: clip;
-        height: 4em;
+        height: 3em;
         box-shadow: 1px 1px 4px var(--text-main-color);
         width: min-content;
         aspect-ratio: 1 / 1;

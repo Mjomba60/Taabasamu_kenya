@@ -12,4 +12,4 @@ export const heroinfo = {
     ]
 }
 
-export const assistivetext = 'Taabasamu is invested in helping improve and connect those in marginalised and underdeveloped areas. Some of these areas are majorly slums. While in this quest, Taabasamu appreciates and welcomes you to join hands and make great things happened. Donations made to us no matter how small make a big impact to those we represent and stand with. We have curated our method of donations to accept various forms including, one time payments, predefined amounts, custom amounts different currencies. To become a sponsor contact us for further information.'
+export const assistivetext = 'Taabasamu is invested in helping improve and connect those in marginalised and underdeveloped areas. Some of these areas are majorly slums. While in this quest, Taabasamu appreciates and welcomes you to join hands and make great things happened. Donations made to us no matter how small make a big impact to those we represent and stand with. We have curated our method of donations to accept various forms. To become a sponsor contact us for further information.'
