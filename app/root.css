@@ -1538,7 +1538,7 @@ body {
 /* Add styles to the popover element including blurring the back drop */
 /* Add styling to the header allowing items to be responsive to mobile devices, include the team carousel */
 #donateqr.donationqrcodecontainer {
-    width: 50vw;
+    width: 40vw;
     display: none;
     padding: 1em;
     gap: 1em;
@@ -1555,6 +1555,35 @@ body {
 
     &::backdrop {
         backdrop-filter: blur(0.5em);
+    }
+
+    .buttonmain{
+        align-self: center;
+        background-color: var(--text-main-color);
+    }
+}
+
+.tabasamuqrtitlenbtncontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+        height: 4em;
+        aspect-ratio: 1/1;
+        width: auto;
+        padding: 0.3em;
+
+        hr {
+            transform: rotate(45deg);
+            height: 3px;
+            background-color: var(--text-main-color);
+
+            &:last-of-type {
+                transform: rotate(315deg);
+            }
+        }
     }
 }
 
@@ -1596,17 +1625,28 @@ body {
 
 .mainsharecontainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 1em;
+    width: 100%;
+    justify-content: center;
 
     >button {
         border-radius: 0.8em;
-        display: flex;
+        display: inline;
         align-items: center;
         gap: 1em;
         overflow: clip;
         height: 4em;
         box-shadow: 1px 1px 4px var(--text-main-color);
-        width: 100%;
+        width: min-content;
+        aspect-ratio: 1 / 1;
     }
+}
+
+.tabasamuqrlinkscontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
 }

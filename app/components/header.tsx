@@ -112,7 +112,7 @@ export function Footer() {
             </div>
             <hr />
             <p className="copyrightxtcontainer">
-                Copyright © 2025 Friends of TaaBasamu &nbsp;a registered 501(c)3 
+                Copyright © 2025 Friends of TaaBasamu &nbsp;a registered 501(c)3
                 <strong> All Rights Reserved.</strong>
             </p>
 
@@ -484,7 +484,7 @@ export function RouteNewsLetterContainer() {
                         <MediumIcon />
                     </a>
                     <a href="/">
-                        <InstagramIcon/>
+                        <InstagramIcon />
                     </a>
                 </div>
             </div>
@@ -520,44 +520,52 @@ export function DonateQrCode() {
     return (
         <div className="donationqrcodecontainer" id="donateqr" popover='auto'>
 
-            <h3>Thank You for Choosing to Donate</h3>
-            <p>{donate_assist_txt}. To learn more about donations, check our <a className="assistivelink" href="/termsandconditions">Terms and Conditions</a> or <a className="assistivelink" href="/faqs">Frequently Asked Question</a></p>
+            <div className="tabasamuqrtitlenbtncontainer">
+                <h3>Taabasamu Donation</h3>
+                <button className="btncloseqr" popovertarget='donateqr' popovertargetaction='hide'>
+                    <hr className="closeqrline" />
+                    <hr className="closeqrline" />
+                </button>
+            </div>
+            <p>{donate_assist_txt}</p>
 
-            <h6><strong><em>Share donation link via</em> {'(Scanning, Email, WhatsApp, Messanger, LinkedIn)'}</strong></h6>
-            <div className="mainqrcodensharecontainer">
-                <div className="mainqrcodeconatiner">
-                    <ClientOnly>
-                        {() => <QRCode value={qr_url} size={300} />}
-                    </ClientOnly>
-                </div>
+            <h6><strong><em>Invite others to Donate through :</em></strong></h6>
 
-                <div className="donationqrdownloadnsharecontainer">
-                    {/* Add elements to share and download qrcode */}
-                    <div className="mainsharecontainer">
-                        <EmailShareButton url={qr_url}>
-                            <EmailIcon />
-                            Email
-                        </EmailShareButton>
-                        <WhatsappShareButton url={qr_url}>
-                            <WhatsappIcon />
-                            Whatsapp
-                        </WhatsappShareButton>
-                        <FacebookShareButton url={qr_url}>
-                            <FacebookMessengerIcon />
-                            Facebook
-                        </FacebookShareButton>
-                        <LinkedinShareButton url={qr_url}>
-                            <LinkedinIcon />
-                            LinkedIn
-                        </LinkedinShareButton>
-                    </div>
-                </div>
+            <div className="mainsharecontainer">
+                <EmailShareButton url={qr_url}>
+                    <EmailIcon />
+                    Email
+                </EmailShareButton>
+                <WhatsappShareButton url={qr_url}>
+                    <WhatsappIcon />
+                    Whatsapp
+                </WhatsappShareButton>
+                <FacebookShareButton url={qr_url}>
+                    <FacebookMessengerIcon />
+                    Facebook
+                </FacebookShareButton>
+                <LinkedinShareButton url={qr_url}>
+                    <LinkedinIcon />
+                    LinkedIn
+                </LinkedinShareButton>
             </div>
 
-            <div className="qrassistbtnscontainer">
-                <button popovertarget='donateqr' popovertargetaction='hide'>Back</button>
-                <button className="buttonmain">Proceed to donate</button>
+            <div className="mainqrcodeconatiner">
+                <ClientOnly>
+                    {() => <QRCode value={qr_url} size={250} />}
+                </ClientOnly>
             </div>
+
+            <button className="buttonmain">Proceed to donate</button>
+
+            <ul className="tabasamuqrlinkscontainer">
+                <li>
+                    <a className="assistivelink" href="/termsandconditions">Terms and Conditions</a>
+                </li>
+                <li>
+                    <a className="assistivelink" href="/faqs">Frequently Asked Question</a>
+                </li>
+            </ul>
         </div>
     )
 }
