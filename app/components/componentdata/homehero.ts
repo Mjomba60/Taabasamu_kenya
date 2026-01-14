@@ -95,4 +95,4 @@ export const promotext = [
     "Provide a brighter equitable tomorrow"
 ]
 
-export const donate_assist_txt = 'Donations and contributions come along way towards achieving our goals and mission as Taabasamu. We welcome you and your associates to join our campaign by making donations to the organisation. Our donation is curated to allow you to share or scan the link to our dontion page'
+export const donate_assist_txt = 'Thank you for choosing to donate. Donations contribute largely towards achieving our goals and mission as Taabasamu.'

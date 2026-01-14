@@ -395,6 +395,12 @@
     box-shadow: 0px 1px 7px 1px var(--text-main-color);
     border-radius: 0.7em;
 
+    &:hover{
+        .eventitembtncontainer{
+            display: flex;
+        }
+    }
+
     img {
         object-fit: contain;
         width: 100%;
@@ -408,7 +414,6 @@
     display: flex;
     flex-direction: column;
     height: -webkit-fill-available;
-    gap: 0.4em;
 
     h3 {
         font-size: calc(0.8em + 4px);
@@ -452,6 +457,49 @@
             margin: 0.3em 0em;
         }
     }
+}
+
+.eventitembtncontainer {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 0.2em;
+    box-shadow: inset 1px 1px 3px var(--text-main-color);
+    border-radius: 0.4em;
+
+    >button {
+        font-size: calc(0.6em + 4px);
+        align-items: center;
+    }
+
+    .eventbtnitem {
+        display: flex;
+        flex-direction: row;
+        gap: 0.4em;
+        background-color: var(--background-main-color);
+        box-shadow: none;
+        color: var(--text-main-color);
+
+        >svg {
+            color: var(--text-main-color);
+            height: 1.5em;
+            aspect-ratio: 1/1;
+            width: auto;
+        }
+    }
+
+    .buttonmain {
+        background-color: var(--text-main-color);
+    }
+}
+
+
+
+.eventitemtitlencategorycontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 @media(width <=500px) {
