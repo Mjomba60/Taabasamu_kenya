@@ -146,7 +146,16 @@ body {
     }
 }
 
+.tabasamusmnavigation {
+    height: 3em;
+    aspect-ratio: 1/1;
+    width: auto;
 
+    hr {
+        height: 3px;
+        background-color: var(--background-main-color);
+    }
+}
 
 
 .taabasamufooter {
@@ -309,10 +318,12 @@ body {
         }
 
         button {
-            width: fit-content;
             color: var(--background-main-color);
             border: 1px solid var(--item-secondary-conatiner);
-            padding: 0.7em 1em;
+            padding: 0.7em 0.5em;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
         }
     }
 
@@ -1407,6 +1418,27 @@ body {
     overflow: clip;
 }
 
+@media screen and (width < 600px) {
+
+    .homepromotext {
+        padding: 1em;
+
+        .promotextcontainer {
+            margin: 0.3em 0em;
+        }
+
+        h3 {
+            margin: 0.6em 0em;
+
+        }
+    }
+
+    .promoslider {
+        font-size: calc(0.6em + 1px);
+        text-wrap-mode: nowrap;
+    }
+}
+
 .routenewslettercontainer {
     display: flex;
     flex-direction: row;
@@ -1505,25 +1537,44 @@ body {
 
         svg {
             color: inherit;
-            width: 1.4em;
+            height: 1.4em;
             aspect-ratio: 1/1;
-            height: auto;
+            width: auto;
         }
     }
 }
 
 @media(width <=500px) {
     .routenewslettercontainer {
+        flex-direction: column;
+        padding: 1em;
+
+        .herosocialscontainer {
+            display: grid;
+            grid-template-rows: 2em 3em;
+            grid-template-columns: repeat(5, 3em);
+            justify-items: center;
+            row-gap: 0em;
+            column-gap: 1em;
+
+            strong {
+                grid-column: 1 / 6;
+                justify-self: anchor-center;
+            }
+        }
+
+
         .newsheroformaincontainer {
             width: 100%;
-            gap: 1em;
+            gap: 0.4em;
 
             h4 {
-                font-size: calc(0.9em + 4px);
+                font-size: calc(0.8em + 4px);
+                margin: 0.6em 0em;
             }
 
             button {
-                padding: 0.4em 0.7em;
+                padding: 0.7em;
                 font-size: calc(0.6em + 5px);
             }
         }
@@ -1558,7 +1609,7 @@ body {
         backdrop-filter: blur(0.5em);
     }
 
-    .buttonmain{
+    .buttonmain {
         align-self: center;
         background-color: var(--text-main-color);
         box-shadow: 1px 1px 4px 1px var(--text-main-color);
@@ -1576,10 +1627,10 @@ body {
         aspect-ratio: 1/1;
         width: auto;
         padding: 0.3em;
-        border: 1px solid;
-        box-shadow: 1px 1px 1px 0px;
-        background-color: #eeacac;
-        border-radius: 2em;
+        border: 1px solid red;
+        box-shadow: 0px 0px 3px 1px #f4b5b5;
+        background-color: #f4b5b5;
+        border-radius: 1em;
 
         hr {
             transform: rotate(45deg);

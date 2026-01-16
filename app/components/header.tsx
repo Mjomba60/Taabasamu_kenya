@@ -7,7 +7,7 @@ import msomi from '../images/fionandimv2.png'
 import { FacebookIcon, InstagramIcon, LinkedInIcon, MediumIcon, TwitterIcon } from "./icons";
 import { donate_assist_txt, homeherodata, homeprogramsstats, promotext, Stats, user_testimonials } from './componentdata/homehero'
 import Slider from "react-slick";
-import { UIEvent } from "react";
+import { UIEvent, useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 import { EmailIcon, EmailShareButton, FacebookIcon as FacebookShareIcon, FacebookShareButton, LinkedinIcon, LinkedinShareButton, WhatsappIcon, WhatsappShareButton } from "react-share";
 import { ClientOnly } from "remix-utils/client-only";
@@ -15,21 +15,60 @@ import { assistivetext } from "./componentdata/donations";
 
 export function Header() {
 
+    const [currscrn_width, setCurrScrn_Width] = useState('large')
+
+    useEffect(() => {
+
+        if (window.outerWidth <= 650) {
+            setCurrScrn_Width('small')
+        } else if (window.outerWidth < 940 && window.outerWidth >= 650) {
+            setCurrScrn_Width('medium')
+        } else {
+            setCurrScrn_Width('large')
+        }
+
+        window.addEventListener('resize', () => {
+
+            if (window.outerWidth <= 650) {
+                setCurrScrn_Width('small')
+            } else if (window.outerWidth < 940 && window.outerWidth >= 650) {
+                setCurrScrn_Width('medium')
+            } else {
+                setCurrScrn_Width('large')
+            }
+        })
+
+        console.log([currscrn_width, window.outerWidth])
+
+        return () => {
+
+        }
+    }, [currscrn_width])
+
+
     return (
         <div className="taabasamuheader"
             data-aos='slide-down'
             data-aos-offset='-1'
-            data-aos-anchor-placement="top-top">
-            <Link to='/' className="headerlogocontainer">
-                <img src={taabasamulogo} alt="taabasamulogo" />
-            </Link>
+            data-aos-anchor-placement="top-bottom">
+            {currscrn_width == 'large' ? <>
+                <Link to='/' className="headerlogocontainer">
+                    <img src={taabasamulogo} alt="taabasamulogo" />
+                </Link>
 
-            <nav>
-                <NavLink to='/about'>About Us</NavLink>
-                <NavLink to='/programs'>Our Programs</NavLink>
-                <NavLink to='newsnevents'>News & Events</NavLink>
-                <NavLink to='/donate'>Donate</NavLink>
-            </nav>
+                <nav>
+                    <NavLink to='/about'>About Us</NavLink>
+                    <NavLink to='/programs'>Our Programs</NavLink>
+                    <NavLink to='newsnevents'>News & Events</NavLink>
+                    <NavLink to='/donate'>Donate</NavLink>
+                </nav>
+            </> :
+            // TODO Edit button as drawer showing navigation elements on the left
+                <button className='tabasamusmnavigation'>
+                    <hr />
+                    <hr />
+                    <hr />
+                </button>}
         </div>
     )
 }
@@ -539,27 +578,27 @@ export function DonateQrCode() {
                     subject="Taabasamu Donation"
                     body={assistivetext}>
                     <EmailIcon
-                    round={false}
-                    size={iconsize}/>
+                        round={false}
+                        size={iconsize} />
                     {/* Email */}
                 </EmailShareButton>
                 <WhatsappShareButton
                     url={qr_url}
                     title="Taabasamu donatiion">
-                    <WhatsappIcon size={iconsize}/>
+                    <WhatsappIcon size={iconsize} />
                     {/* Whatsapp */}
                 </WhatsappShareButton>
                 <FacebookShareButton
                     url={qr_url}
                     hashtag="#Taabasamu_smile_givers">
-                    <FacebookShareIcon size={iconsize}/>
+                    <FacebookShareIcon size={iconsize} />
                     {/* Facebook */}
                 </FacebookShareButton>
                 <LinkedinShareButton
                     url={qr_url}
                     title="Tabasamu donations"
                     summary={assistivetext}>
-                    <LinkedinIcon size={iconsize}/>
+                    <LinkedinIcon size={iconsize} />
                     {/* LinkedIn */}
                 </LinkedinShareButton>
             </div>
