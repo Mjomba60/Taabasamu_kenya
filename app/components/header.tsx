@@ -76,7 +76,7 @@ export function Header() {
 export function HamburgerMenu() {
 
     
-    // TODO Edit button as drawer showing navigation elements on the left
+    // TODO update links to close popup when clicked
     return (
         <div className="hamburgermenu" id="tbhamburgermenu" popover='auto'>
             <button className="hamburgerclosemenu" popovertarget='tbhamburgermenu' popovertargetaction='close'>
@@ -84,10 +84,10 @@ export function HamburgerMenu() {
                 <hr />
             </button>
             <nav>
-                <NavLink to='/'>Home</NavLink>
-                <NavLink to='/about'>About Us</NavLink>
-                <NavLink to='/programs'>Our Programs</NavLink>
-                <NavLink to='newsnevents'>News & Events</NavLink>
+                <a href='/'>Home</a>
+                <a href='/about'>About Us</a>
+                <a href='/programs'>Our Programs</a>
+                <a href='newsnevents'>News & Events</a>
             </nav>
 
             <button className="buttonmain">Donate</button>
