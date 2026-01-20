@@ -11,7 +11,7 @@ import AOS from 'aos';
 
 import "./tailwind.css";
 import './root.css'
-import { DonateQrCode, Footer, Header, PromotionCarousel, RouteNewsLetterContainer } from "./components/header";
+import { DonateQrCode, Footer, HamburgerMenu, Header, PromotionCarousel, RouteNewsLetterContainer } from "./components/header";
 import { useEffect } from "react";
 
 export const links: LinksFunction = () => [
@@ -74,6 +74,7 @@ export default function App() {
   return (
     <div className="taabasamubody">
       <Header />
+      <HamburgerMenu/>
       <Outlet />
       <RouteNewsLetterContainer />
       <PromotionCarousel />

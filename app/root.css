@@ -349,6 +349,54 @@ body {
 
 }
 
+#tbhamburgermenu{
+    flex-direction: column;
+    height: 100vh;
+    width: 50vw;
+    padding: 1em;
+    margin-left: 0px;
+    margin-top: 0px;
+    background-color: var(--background-main-color);
+    color: var(--text-main-color);
+    justify-content: space-between;
+
+    .hamburgerclosemenu{
+        height: 3em;
+        aspect-ratio: 1/1;
+        width: auto;
+        padding: 0.3em;
+        border: 1px solid red;
+        box-shadow: 0px 0px 3px 1px #f4b5b5;
+        background-color: #f4b5b5;
+        border-radius: 1em;
+        align-self: flex-end;
+
+        hr {
+            transform: rotate(45deg);
+            height: 3px;
+            background-color: var(--text-main-color);
+
+            &:last-of-type {
+                transform: rotate(315deg);
+            }
+        }
+    }
+
+    nav{
+        display: flex;
+        flex-direction: column;
+        gap: 0.7em;
+    }
+}
+
+#tbhamburgermenu:popover-open{
+    display: flex;
+
+    &::backdrop {
+        backdrop-filter: blur(0.3em);
+    }
+}
+
 .routesmainlayoutcontainer {
     width: 100%;
     display: flex;

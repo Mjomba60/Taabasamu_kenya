@@ -63,12 +63,34 @@ export function Header() {
                     <NavLink to='/donate'>Donate</NavLink>
                 </nav>
             </> :
-            // TODO Edit button as drawer showing navigation elements on the left
-                <button className='tabasamusmnavigation'>
+                // TODO Edit button as drawer showing navigation elements on the left
+                <button className='tabasamusmnavigation' popovertarget='tbhamburgermenu' popovertargetaction='show'>
                     <hr />
                     <hr />
                     <hr />
                 </button>}
+        </div>
+    )
+}
+
+export function HamburgerMenu() {
+
+    
+    // TODO Edit button as drawer showing navigation elements on the left
+    return (
+        <div className="hamburgermenu" id="tbhamburgermenu" popover='auto'>
+            <button className="hamburgerclosemenu" popovertarget='tbhamburgermenu' popovertargetaction='close'>
+                <hr />
+                <hr />
+            </button>
+            <nav>
+                <NavLink to='/'>Home</NavLink>
+                <NavLink to='/about'>About Us</NavLink>
+                <NavLink to='/programs'>Our Programs</NavLink>
+                <NavLink to='newsnevents'>News & Events</NavLink>
+            </nav>
+
+            <button className="buttonmain">Donate</button>
         </div>
     )
 }
