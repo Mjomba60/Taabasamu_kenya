@@ -10,15 +10,6 @@ import Slider from "react-slick";
 
 export function AboutHero() {
 
-    const btn_navigator = useNavigate()
-
-    function handleClick(event: UIEvent) {
-
-        if (event.type == 'click') {
-            btn_navigator('/donate')
-        }
-    }
-
     return (
         <div className="routemainherocontainer">
             <img src={heroimage} alt="teamtabasamu" />
@@ -29,7 +20,7 @@ export function AboutHero() {
                 data-aos-easing='ease-in'>
                 <h1>Raising voices of those in underdeveloped areas through community empowerment</h1>
                 <p>Understand the structure that Taabasamu is built on that makes us the hope and voice to those in slums and marginalised areas.</p>
-                <button onClick={handleClick}>Support Taabasamu</button>
+                <button popovertarget='donateqr' popovertargetaction='show'>Support Taabasamu</button>
             </div>
         </div>
     )
@@ -84,15 +75,6 @@ export function AboutCoreValues() {
 
 export function AboutMission() {
 
-    const btn_navigator = useNavigate()
-
-    function handleClick(event: UIEvent) {
-
-        if (event.type == 'click') {
-            btn_navigator('/donate')
-        }
-    }
-
     return (
         <div className="routesmainsectionlayoutcontainer"
             id="mission"
@@ -108,22 +90,13 @@ export function AboutMission() {
                 data-aos-easing='ease-in'>
                 <h3>Our Mission</h3>
                 <p>{missionstatement}</p>
-                <button onClick={handleClick}>Get Involved</button>
+                <button popovertarget='donateqr' popovertargetaction='show'>Support mission</button>
             </div>
         </div>
     )
 }
 
 export function AboutVision() {
-
-    const btn_navigator = useNavigate()
-
-    function handleClick(event: UIEvent) {
-
-        if (event.type == 'click') {
-            btn_navigator('/donate')
-        }
-    }
 
     return (
         <div className="routesmainsectionlayoutcontainer"
@@ -139,7 +112,7 @@ export function AboutVision() {
                 data-aos-easing='ease-in'>
                 <h3>Our Vision</h3>
                 <p>{visionstatement}</p>
-                <button onClick={handleClick}>Get Involved</button>
+                <button popovertarget='donateqr' popovertargetaction='show'>Get Involved</button>
             </div>
             <img src={visionimage} alt="ourvision" />
         </div>
