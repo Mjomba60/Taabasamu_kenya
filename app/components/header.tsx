@@ -60,7 +60,7 @@ export function Header() {
                     <NavLink to='/about'>About Us</NavLink>
                     <NavLink to='/programs'>Our Programs</NavLink>
                     <NavLink to='newsnevents'>News & Events</NavLink>
-                    <NavLink to='/donate'>Donate</NavLink>
+                    <button className="buttonmain" popovertarget='donateqr' popovertargetaction='show'>Donate</button>
                 </nav>
             </> :
                 // TODO Edit button as drawer showing navigation elements on the left
@@ -76,7 +76,6 @@ export function Header() {
 export function HamburgerMenu() {
 
     
-    // TODO update links to close popup when clicked
     return (
         <div className="hamburgermenu" id="tbhamburgermenu" popover='auto'>
             <button className="hamburgerclosemenu" popovertarget='tbhamburgermenu' popovertargetaction='close'>
@@ -350,15 +349,6 @@ export function HomeProgramSection() {
 
 export function HomeGetInvolvedSection() {
 
-    const btn_navigator = useNavigate()
-
-    function handleClick(event: UIEvent) {
-
-        if (event.type == 'click') {
-            btn_navigator('/donate')
-        }
-    }
-
     return (
         <div className="routesmainsectionlayoutcontainer"
             id="involvment"
@@ -374,7 +364,7 @@ export function HomeGetInvolvedSection() {
                 <h3>Getting Involved</h3>
                 <p>We are open to individuals who would like to support us in our mission and vision. Taabasamu has several methods of participation.</p>
                 <div className="buttoncontainer">
-                    <button onClick={handleClick}>Donate</button>
+                    <button popovertarget='donateqr' popovertargetaction='show'>Donate</button>
                     <button>Contact Taabasamu</button>
                 </div>
             </div>
