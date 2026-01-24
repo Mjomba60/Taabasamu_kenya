@@ -50,7 +50,7 @@ export function Header() {
         <div className="taabasamuheader"
             data-aos='slide-down'
             data-aos-offset='-1'
-            data-aos-anchor-placement="top-bottom">
+            data-aos-anchor-placement="top-top">
             {currscrn_width == 'large' ? <>
                 <Link to='/' className="headerlogocontainer">
                     <img src={taabasamulogo} alt="taabasamulogo" />
