@@ -55,7 +55,7 @@ export const visionstatement =
   'Our vision is to bring hope, dignity and opportunity to those underlooked. We work hand in hand with communities in slums and impoverished areas, offering support that meets real needs including; food, education, healthcare and more. We believe that every person deserves a chance to live a full and meaningful life, and we are committed to walking alongside them every step of the way. With love, compassion and unwavering dedication, we strive to help build a world where no one is left behind.'
 
 export const teamstatement =
-  'Behind every smile we bring and every life we touch is a passionate team driven with love, purpose and hope. Our team is built from a diverse group of individuals including; volunteers, social workers, project managers and community leaders who share and believe in the power of kindness and unity. With each day, we step into underserved communities with the goal of listening, learning and taking actions that change the lives of many. Our strength lies not just in what we do, but in how we do it. These helps us stand out as our core values have been embedded within our DNA as Taabasamu.Meet our team.'
+  'Behind every smile we bring and every life we touch is a passionate team driven with love, purpose and hope. With each day, we step into underserved communities with the goal of listening, learning and taking actions that change the lives of many. Our strength lies not just in what we do, but in how we do it. These helps us stand out as our core values have been embedded within our DNA as Taabasamu.Meet our team.'
 
 type Membersocials = {
   facebook?: string

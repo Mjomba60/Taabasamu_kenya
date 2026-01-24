@@ -163,11 +163,14 @@
 
     .aboutcorevaluescontainer {
         grid-template-columns: repeat(2, 1fr);
+        padding: 0em;
+        gap: 1em;
     }
 
     .corevaluecontainer {
         gap: 0em;
-        border: 1px solid;
+        border: 2px ridge;
+        border-radius: 0.7em;
 
         img {
             padding: 0.4em;

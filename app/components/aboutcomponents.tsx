@@ -178,6 +178,8 @@ function TeamMemberItem({ member_image, member_name, member_role, socials }: Tea
 }
 
 export function AboutTeamMembers() {
+    // TODO update slider element to correspond with the scrnwidth to set the number of slides to show
+
 
     // Add carousel feature with the remix-utils clientonly component, implement carousel style
     const settings = {
@@ -191,7 +193,27 @@ export function AboutTeamMembers() {
         speed: 1000,
         autoplaySpeed: 3200,
         pauseOnHover: true,
-        arrows: true
+        arrows: false,
+        responsive: [
+            {
+                breakpoint: 650,
+                settings: {
+                    slidesToShow: 1
+                }
+            },
+            {
+                breakpoint: 940,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 4
+                }
+            }
+        ]
     }
 
     return (
