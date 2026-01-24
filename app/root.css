@@ -105,6 +105,7 @@ body {
     min-height: 100vh;
     flex-direction: column;
     width: 99vw;
+    overflow: hidden;
 }
 
 .taabasamuheader {
@@ -1757,4 +1758,18 @@ body {
     justify-content: space-around;
     align-items: center;
 
+}
+
+@media screen and (width < 650px) {
+    #donateqr.donationqrcodecontainer{
+        width: 80vw;
+    }
+
+    .mainqrcodeconatiner{
+        >svg{
+            height: 10em;
+            aspect-ratio: 1/1;
+            width: auto;
+        }
+    }
 }
