@@ -213,6 +213,7 @@
     gap: 1em;
     background-color: var(--background-main-color);
     color: var(--text-main-color);
+    padding-top: 10vh;
 
     h2 {
         margin: 0.4em 0em;
