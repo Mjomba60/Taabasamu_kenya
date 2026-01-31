@@ -1,6 +1,9 @@
 import { Link, useNavigate } from "@remix-run/react";
 import { ExtendedProgramItem, programintro, ProgramItem, programitems } from "./componentdata/tabasamuprograms";
 import donationimg from '../images/donationv3.png'
+import education from '../images/graduation.png'
+import health from '../images/health.png'
+import nutrition from '../images/nutrition.png'
 import { UIEvent } from "react";
 
 export function ProgramsHero() {
@@ -109,5 +112,30 @@ export function TitledProgramItem({ title, subtitle, image, impact, introtxt, mi
                 </div>
             </div>
         </>
+    )
+}
+
+export function ProgrammHero_v2(){
+
+    return(
+        <div className="newprogramherocontainer">
+            <h1>With the Community, For the Community, <br /> To the Community</h1>
+            <p>{programintro.introtxt}</p>
+            <h4>Major Factors of Concern in slums that Our Organization puts effort and tries to solve through Our Programs</h4>
+            <div className="newprogramimgnstatcontainer">
+                <div className="newprogramimgstatitemcontainer">
+                    <img src={nutrition} alt="nutrition" />
+                    <p><strong>Nutrition</strong></p>
+                </div>
+                <div className="newprogramimgstatitemcontainer">
+                    <img src={education} alt="Education" />
+                    <p><strong>Education</strong></p>
+                </div>
+                <div className="newprogramimgstatitemcontainer">
+                    <img src={health} alt="Health" />
+                    <p><strong>Health</strong></p>
+                </div>
+            </div>
+        </div>
     )
 }

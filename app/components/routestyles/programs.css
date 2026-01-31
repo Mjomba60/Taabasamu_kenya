@@ -73,6 +73,46 @@
     }
 }
 
+.newprogramherocontainer {
+    width: 100%;
+    padding: 1em 7em;
+    padding-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.newprogramimgnstatcontainer {
+    display: grid;
+    grid-template-columns: repeat(3, 10em);
+    padding: 1em;
+    align-self: center;
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.newprogramimgstatitemcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7em;
+    border-radius: 0.4em;
+    box-shadow: inset 0px 1px 3px 0px var(--text-main-color);
+    padding: 1em;
+    width: 100%;
+
+    >img {
+        height: 5em;
+        aspect-ratio: 1/1;
+        width: auto;
+        object-fit: cover;
+    }
+}
+
 .programsmainitemscontainer {
     display: flex;
     flex-direction: column;
