@@ -556,3 +556,48 @@
         text-align: center;
     }
 }
+
+.aboutnewherocontainer {
+    width: 100%;
+    padding: 0em 4em;
+    text-align: center;
+    padding-top: 10vh;
+    color: var(--text-main-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newheroimgtxtcontainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 75%;
+    align-items: center;
+
+    >img {
+        width: 75%;
+        aspect-ratio: 1/ 0.5;
+        height: auto;
+        border-radius: 0.5em;
+        object-fit: cover;
+    }
+}
+
+.newherostatscontainer {
+    width: -webkit-fill-available;
+    display: grid;
+    gap: 1em;
+    grid-template-columns: repeat(4, 14em);
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.newherostat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: -webkit-fill-available;
+}

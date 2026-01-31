@@ -1,10 +1,10 @@
 import { aboutintrotext, Corevalue, corevalues, impactstatement, Impactvalue, impactvalues, missionstatement, team_members, Teammember, teamstatement, visionstatement } from "./componentdata/aboutus";
 import mealimage from '../images/Addde7.png'
 import visionimage from '../images/vision.jpg'
+import slum from '../images/hero2.jpg'
 import heroimage from '../images/myteamherov2.png'
-import { Link, useNavigate } from "@remix-run/react";
+import { Link } from "@remix-run/react";
 import { FacebookIcon, LinkedInIcon, TwitterIcon } from "./icons";
-import { UIEvent } from "react";
 import { ClientOnly } from "remix-utils/client-only";
 import Slider from "react-slick";
 
@@ -245,6 +245,37 @@ export function AboutImpact() {
             {/* show the impact values */}
             <div className="impactvaluesmaincontainer">
                 {impactvalues.map(({ impact_image, impact_value, impact_value_definer, impact_value_assistive_txt }) => <ImpactValueItem key={impact_value} impact_image={impact_image} impact_value_definer={impact_value_definer} impact_value={impact_value} impact_value_assistive_txt={impact_value_assistive_txt} />)}
+            </div>
+        </div>
+    )
+}
+
+export function AboutHero_v2() {
+
+    return (
+        <div className="aboutnewherocontainer">
+            <h1>We Are About <em>Smiles</em> and <em>Shine</em>,
+                <br /> some call Us {'"The Light that Keeps Us Smiling"'}</h1>
+            <div className="newheroimgtxtcontainer">
+                <div className="newherostatscontainer">
+                    <div className="newherostat">
+                        <p>Average <strong>Population</strong> in slums.</p>
+                        <h3>4.1M</h3>
+                    </div>
+                    <div className="newherostat">
+                        <p><strong>Meals</strong> per day for most families in slums.</p>
+                        <h3>1</h3>
+                    </div>
+                    <div className="newherostat">
+                        <p>Probability of children in slums receiving <strong>Education</strong>.</p>
+                        <h3>{'22%'}</h3>
+                    </div>
+                    <div className="newherostat">
+                        <p><strong>Equipped Medical Facilities</strong> within slums and accessible.</p>
+                        <h3>3</h3>
+                    </div>
+                </div>
+                <img src={slum} alt="slums" />
             </div>
         </div>
     )
