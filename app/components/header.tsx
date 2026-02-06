@@ -1,4 +1,4 @@
-import { Link, NavLink, useNavigate } from "@remix-run/react";
+import { Link, Navigate, NavLink, useNavigate } from "@remix-run/react";
 import taabasamulogo from '../images/taaabasamu2-removebgv2.png'
 import fionanobg from '../images/newsample3.png'
 import soma from '../images/MyTeam.png'
@@ -7,11 +7,13 @@ import msomi from '../images/fionandimv2.png'
 import { FacebookIcon, InstagramIcon, LinkedInIcon, MediumIcon, TwitterIcon } from "./icons";
 import { donate_assist_txt, homeherodata, homeprogramsstats, promotext, Stats, user_testimonials } from './componentdata/homehero'
 import Slider from "react-slick";
-import { UIEvent, useEffect, useState } from "react";
+import { FormEvent, UIEvent, useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 import { EmailIcon, EmailShareButton, FacebookIcon as FacebookShareIcon, FacebookShareButton, LinkedinIcon, LinkedinShareButton, WhatsappIcon, WhatsappShareButton } from "react-share";
 import { ClientOnly } from "remix-utils/client-only";
 import { assistivetext } from "./componentdata/donations";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/ReactToastify.css'
 
 export function Header() {
 
@@ -75,7 +77,7 @@ export function Header() {
 
 export function HamburgerMenu() {
 
-    
+
     return (
         <div className="hamburgermenu" id="tbhamburgermenu" popover='auto'>
             <button className="hamburgerclosemenu" popovertarget='tbhamburgermenu' popovertargetaction='close'>
@@ -94,10 +96,10 @@ export function HamburgerMenu() {
     )
 }
 
-export function Footer() {
+export function Footer() { 
 
     return (
-        <div className="taabasamufooter">
+        <div className="taabasamufooter" id="tbfooter">
             <div className="footerlinksmainconatiner">
 
                 {/* Section with quick links */}
@@ -349,6 +351,13 @@ export function HomeProgramSection() {
 
 export function HomeGetInvolvedSection() {
 
+    const navigation = useNavigate()
+
+    function handleContactClick(){
+        console.log('handling click, navigating to footer')
+        navigation('/about#tbfooter')
+    }
+
     return (
         <div className="routesmainsectionlayoutcontainer"
             id="involvment"
@@ -365,7 +374,7 @@ export function HomeGetInvolvedSection() {
                 <p>We are open to individuals who would like to support us in our mission and vision. Taabasamu has several methods of participation.</p>
                 <div className="buttoncontainer">
                     <button popovertarget='donateqr' popovertargetaction='show'>Donate</button>
-                    <button>Contact Taabasamu</button>
+                    <button onClick={handleContactClick}>Contact Taabasamu</button>
                 </div>
             </div>
 
@@ -509,7 +518,25 @@ export function PromotionCarousel() {
 // Update layout for newsletter
 export function RouteNewsLetterContainer() {
 
+    function handleBtnClick(event: FormEvent<HTMLButtonElement | HTMLFormElement>) {
+        event.preventDefault()
+        console.log('Processing subscription')
+        toast.success('Processing your submission', {
+            type: 'success',
+            position: 'bottom-right',
+            pauseOnHover: false,
+            pauseOnFocusLoss: true,
+            autoClose: 3000,
+            onOpen: () => { console.log('Toast is Open') }
+        })
+    }
+
+    // function handleformBtnClick(e: MouseEvent<HTMLButtonElement, MouseEvent>){
+    //     toast('Processing submission')
+    // }
+
     return (
+        <>
         <div className="routenewslettercontainer routesmainsectionlayoutcontainer"
             data-aos='fade-up'
             data-aos-delay='600'
@@ -541,24 +568,18 @@ export function RouteNewsLetterContainer() {
                 </div>
             </div>
 
-            <form className="newsheroformaincontainer">
+            <form className="newsheroformaincontainer" onSubmit={handleBtnClick}>
                 <h4>Subscribe to Our News Letter</h4>
                 <fieldset>
                     <legend>Email</legend>
                     <input type="email" placeholder="Enter your email to subscribe to our news letter" />
                 </fieldset>
-                <button>Subscribe</button>
-                {/* <div className="alternativeconnectcontainer">
-                    <hr />
-                    <p>Or</p>
-                    <hr />
-                </div>
-                <div className="mynewsherosocialscontainer">
-                    <h4>Talk to Us through Our Socials</h4>
-                    
-                </div> */}
+                <button onSubmit={handleBtnClick}>Subscribe</button>
             </form>
         </div>
+        <ToastContainer/>
+        </>
+
     )
 }
 
