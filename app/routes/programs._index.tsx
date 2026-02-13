@@ -14,7 +14,6 @@ export default function TaabasamuPrograms(){
 
     return(
         <div className="routesmainlayoutcontainer" id="mainprograms">
-            {/* <ProgramsHero/> */}
             <ProgrammHero_v2/>
             <ListProgramItems/>
         </div>

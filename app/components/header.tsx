@@ -1,4 +1,4 @@
-import { Link, Navigate, NavLink, useNavigate } from "@remix-run/react";
+import { Link, NavLink, useNavigate } from "@remix-run/react";
 import taabasamulogo from '../images/taaabasamu2-removebgv2.png'
 import fionanobg from '../images/newsample3.png'
 import soma from '../images/MyTeam.png'
@@ -7,7 +7,7 @@ import msomi from '../images/fionandimv2.png'
 import { FacebookIcon, InstagramIcon, LinkedInIcon, MediumIcon, TwitterIcon } from "./icons";
 import { donate_assist_txt, homeherodata, homeprogramsstats, promotext, Stats, user_testimonials } from './componentdata/homehero'
 import Slider from "react-slick";
-import { FormEvent, UIEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, UIEvent, useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 import { EmailIcon, EmailShareButton, FacebookIcon as FacebookShareIcon, FacebookShareButton, LinkedinIcon, LinkedinShareButton, WhatsappIcon, WhatsappShareButton } from "react-share";
 import { ClientOnly } from "remix-utils/client-only";
@@ -62,7 +62,7 @@ export function Header() {
                     <NavLink to='/about'>About Us</NavLink>
                     <NavLink to='/programs'>Our Programs</NavLink>
                     <NavLink to='newsnevents'>News & Events</NavLink>
-                    <button className="buttonmain" popovertarget='donateqr' popovertargetaction='show'>Donate</button>
+                    <DonationBtn btn_title={"Donate"} classname={"buttonmain"} />
                 </nav>
             </> :
                 // TODO Edit button as drawer showing navigation elements on the left
@@ -91,7 +91,7 @@ export function HamburgerMenu() {
                 <a href='newsnevents'>News & Events</a>
             </nav>
 
-            <button className="buttonmain">Donate</button>
+            <DonationBtn btn_title={"Donate"} classname={"buttonmain"} />
         </div>
     )
 }
@@ -178,36 +178,6 @@ export function Footer() {
                 Copyright © 2025 Friends of TaaBasamu &nbsp;a registered 501(c)3
                 <strong> All Rights Reserved.</strong>
             </p>
-
-            {/* Logo & newsletter form */}
-            <div className="footerlogonewslettercontainer">
-                <Link to='/' className="footerlogolinkcontainer">
-                    <img src={taabasamulogo} alt="logo" />
-                </Link>
-
-                <form>
-                    <h5>Stay Updated</h5>
-                    <div className="formnewslettercontainer">
-                        <input type="email" placeholder="Enter your email to subscribe to our newsletter" />
-                        <button>Subscribe</button>
-                    </div>
-                </form>
-
-                <div className="footericonscontainer">
-                    <a href="/">
-                        <FacebookIcon />
-                    </a>
-                    <a href="/">
-                        <TwitterIcon />
-                    </a>
-                    <a href="/">
-                        <InstagramIcon />
-                    </a>
-                    <a href="/">
-                        <LinkedInIcon />
-                    </a>
-                </div>
-            </div>
         </div>
     )
 }
@@ -243,7 +213,7 @@ export function HomeHero() {
                 <h1>{homeherodata.maintext}</h1>
                 <p>{homeherodata.subtext}</p>
                 <div className="herobtnscontainer">
-                    <button id="homedonate" popovertarget='donateqr' popovertargetaction='show'>Donate</button>
+                    <DonationBtn btn_title={"Donate"} classname={""} />
                     <button id="homelearnmore" onClick={handlebtnClick}>Learn More</button>
                 </div>
             </div>
@@ -373,7 +343,7 @@ export function HomeGetInvolvedSection() {
                 <h3>Getting Involved</h3>
                 <p>We are open to individuals who would like to support us in our mission and vision. Taabasamu has several methods of participation.</p>
                 <div className="buttoncontainer">
-                    <button popovertarget='donateqr' popovertargetaction='show'>Donate</button>
+                    <DonationBtn btn_title="Get Involved" classname=""/>
                     <button onClick={handleContactClick}>Contact Taabasamu</button>
                 </div>
             </div>
@@ -518,10 +488,17 @@ export function PromotionCarousel() {
 // Update layout for newsletter
 export function RouteNewsLetterContainer() {
 
+    const [email_input, setEmailInput] = useState('')
+
+    function handleEmailInputChange(event: ChangeEvent<HTMLInputElement>){
+
+        setEmailInput(event.target.value)
+    }
+
     function handleBtnClick(event: FormEvent<HTMLButtonElement | HTMLFormElement>) {
         event.preventDefault()
-        console.log('Processing subscription')
-        toast.success('Processing your submission', {
+        
+        toast.success('Processing your subsciption', {
             type: 'success',
             position: 'bottom-right',
             pauseOnHover: false,
@@ -529,11 +506,9 @@ export function RouteNewsLetterContainer() {
             autoClose: 3000,
             onOpen: () => { console.log('Toast is Open') }
         })
-    }
 
-    // function handleformBtnClick(e: MouseEvent<HTMLButtonElement, MouseEvent>){
-    //     toast('Processing submission')
-    // }
+        setEmailInput('')
+    }
 
     return (
         <>
@@ -572,7 +547,7 @@ export function RouteNewsLetterContainer() {
                 <h4>Subscribe to Our News Letter</h4>
                 <fieldset>
                     <legend>Email</legend>
-                    <input type="email" placeholder="Enter your email to subscribe to our news letter" />
+                    <input type="email" onChange={handleEmailInputChange} placeholder="Enter your email to subscribe to our news letter"  value={email_input}/>
                 </fieldset>
                 <button onSubmit={handleBtnClick}>Subscribe</button>
             </form>
@@ -653,5 +628,18 @@ export function DonateQrCode() {
                 </li>
             </ul>
         </div>
+    )
+}
+
+interface Donation_btn_props {
+    btn_title: string,
+    classname: string
+
+}
+
+export function DonationBtn({btn_title, classname}: Donation_btn_props){
+
+    return(
+        <button className={classname} popovertarget='donateqr' popovertargetaction='open'>{btn_title}</button>
     )
 }

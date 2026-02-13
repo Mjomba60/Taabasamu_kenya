@@ -12,6 +12,16 @@ import impactimg2 from '../../images/support.png'
 import impactimg3 from '../../images/vest.png'
 import impactimg4 from '../../images/leadership.png'
 
+export const aboutherohlghttxt = [
+  "The light that sparks smiles and brightens community's shared future.",
+  'A shining light that turns hope into smiles across our community.',
+  'The light that awakens smiles and restores hope among slums.',
+  'A guiding light that fuels smiles and strengthens community hope.',
+  'The light that spreads smiles and illuminates a hopeful tomorrow.',
+  'The light that brightens faces and lifts the spirit of our community.',
+  'Addressing factors that are undermined in our community.'
+] 
+
 export const aboutintrotext =
   'We are a non-pprofit organization taking key interest in under developed areas, especially slums. In the narrow lanes of urban slums where dreams often go unheard, we stand and together become the voice of the voiceless. Our non-profit organization is dedicated to nuturing potential, healing lives and building inclusive communities where everyone has a chance to thrive. At our core, we are change makers committed to reshaping the narrative for those living in poverty. Through grassroot engagement and community partnerships, we deliver impactful programs that restore hope and dignity. We stand at the intersection of poverty and potential. We believe that together greater things can be achieved and in that spirit, we align our work on the backbone of our core values as below;'
 

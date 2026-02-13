@@ -16,7 +16,6 @@ export default function NewsNEvents(){
 
     return(
         <div className="newsneventsmaincontainer">
-            {/* <NewsHero/> */}
             <NewsSectionContainer/>
             <EventSectionContainer/>
         </div>

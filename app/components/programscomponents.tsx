@@ -5,40 +5,11 @@ import education from '../images/graduation.png'
 import health from '../images/health.png'
 import nutrition from '../images/nutrition.png'
 import { UIEvent } from "react";
+import { DonationBtn } from "./header";
 
-export function ProgramsHero() {
-
-    const btn_navigator = useNavigate()
-
-    function handleClick(event: UIEvent) {
-
-        if (event.type == 'click') {
-            btn_navigator('/donate')
-        }
-    }
-
-    return (
-        <div className="routemainherocontainer">
-            <img src={programintro.image} alt="programheroimage" />
-            <div className="routemainherotxtcontainer">
-                <h1>A LIGHT OUT OF THE TUNNEL</h1>
-                <p>{programintro.introtxt}</p>
-                <button onClick={handleClick}>Donate to programs</button>
-            </div>
-        </div>
-    )
-}
 
 function SingleProgramItem({ title, image, subtitle, location }: ProgramItem) {
 
-    const btn_navigator = useNavigate()
-
-    function handleClick(event: UIEvent) {
-
-        if (event.type == 'click') {
-            btn_navigator('/donate')
-        }
-    }
 
     return (
         <Link to={title.toLowerCase()} className="programitemcontainer">
@@ -48,8 +19,7 @@ function SingleProgramItem({ title, image, subtitle, location }: ProgramItem) {
                     <h4>{title} PROJECT</h4>
                     <span>{location}</span>
                 </div>
-                <button onClick={handleClick}>Support Project</button>
-            </div>
+                <DonationBtn btn_title={"Support Program"} classname={""}/>            </div>
             <p>{subtitle}</p>
         </Link>
     )
