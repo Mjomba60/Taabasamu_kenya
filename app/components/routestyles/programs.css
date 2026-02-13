@@ -1,76 +1,61 @@
+/* TODO remove unused css */
+
 .taabasamuprogramscontainer {
     width: 100%;
 }
 
-.programherocontainer {
+
+.newprogramherocontainer {
     width: 100%;
-    position: relative;
-    height: 80vh;
-    color: var(--background-main-color);
+    padding: 1em 7em;
+    padding-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    background-color: var(--container-secondary-main-color);
+}
 
-    img {
-        position: absolute;
-        bottom: 0%;
-        left: 0%;
-        width: 100%;
-        height: 100%;
+.newprogramimgnstatcontainer {
+    display: grid;
+    grid-template-columns: repeat(3, 10em);
+    padding: 1em;
+    align-self: center;
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.newprogramimgstatitemcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7em;
+    border-radius: 0.4em;
+    box-shadow: inset 0px 1px 3px 0px var(--text-main-color);
+    padding: 1em;
+    width: 100%;
+
+    >img {
+        height: 5em;
+        aspect-ratio: 1/1;
+        width: auto;
         object-fit: cover;
-        z-index: 4;
-    }
-
-    .herotxtcontainer {
-        position: absolute;
-        left: 0%;
-        bottom: 0%;
-        padding: 3em 10em;
-        z-index: 7;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        background: linear-gradient(360deg, black, 80%, #060d2200);
-        justify-content: center;
-        text-align: center;
-        align-items: center;
-
-        h1 {
-            margin: 0.8em 0em;
-        }
-
-        p {
-            margin: 0.5em 0em;
-        }
-
-        button{
-            background-color: var(--secondary-blue-color);
-            color: var(--background-main-color);
-        }
     }
 }
 
-@media(width <=500px) {
-    .programherocontainer {
-        height: 90vh;
-
-        .herotxtcontainer {
-            padding: 1em;
-            padding-right: 1em;
-            background: linear-gradient(360deg, black, 80%, #060d2200);
-            height: fit-content;
-            width: 100%;
-
-            h1 {
-                margin: 0.4em 0em;
-            }
-
-            p {
-                margin: 0.2em 0em;
-            }
-
-            button {
-                font-size: calc(0.6em + 5px);
-            }
-        }
+@media screen and (width < 650px) {
+    .newprogramherocontainer {
+        padding: 0em 1em;
+        padding-top: 10vh;
     }
+
+    .newprogramimgnstatcontainer{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
 }
 
 .programsmainitemscontainer {
@@ -101,7 +86,7 @@
     gap: 1.4em;
 }
 
-@media(width <=500px) {
+@media screen and (width <=500px) {
     .programsmainitemscontainer {
 
         >h2 {
@@ -129,6 +114,13 @@
     border-radius: 0.7em;
     text-align: start;
 
+    .projectitemmaintxtnbtncontainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     img {
         height: 35vh;
         width: 100%;
@@ -155,13 +147,14 @@
     }
 
     button {
-        width: 100%;
+        width: fit-content;
         text-align: center;
         padding: 0.7em 1em;
         border-radius: 0.4em;
         background-color: var(--text-main-color);
         color: var(--background-main-color);
         display: none;
+        box-shadow: 1px 1px 3px var(--text-main-color);
     }
 
     &:hover {

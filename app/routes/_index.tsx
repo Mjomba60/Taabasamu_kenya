@@ -1,6 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
 import { HomeAboutSection, HomeGetInvolvedSection, HomeHero, HomeProgramSection, IntroductorySection, Testimonials } from "~/components/header";
-// import { PromotionCarouselContainer } from "~/components/taabasamucarousel.client";
 
 export const meta: MetaFunction = () => {
   return [
@@ -16,9 +15,8 @@ export default function Index() {
       <IntroductorySection/>
       <HomeAboutSection/>
       <HomeProgramSection/>
-      <HomeGetInvolvedSection/>
       <Testimonials/>
-      {/* <HomeNewsEvents/> */}
+      <HomeGetInvolvedSection/>
     </div>
   );
 }

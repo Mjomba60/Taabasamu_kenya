@@ -1,4 +1,4 @@
-import { EventSectionContainer, NewsHero, NewsSectionContainer } from "~/components/newsneventscomponents";
+import { EventSectionContainer, NewsSectionContainer } from "~/components/newsneventscomponents";
 // import newsletterimg from '../images/newsletter.png'
 import '../components/routestyles/newsnevents.css'
 import { MetaFunction } from "@remix-run/node";
@@ -16,7 +16,6 @@ export default function NewsNEvents(){
 
     return(
         <div className="newsneventsmaincontainer">
-            <NewsHero/>
             <NewsSectionContainer/>
             <EventSectionContainer/>
         </div>

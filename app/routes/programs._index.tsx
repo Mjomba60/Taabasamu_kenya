@@ -1,4 +1,4 @@
-import { ListProgramItems, ProgramsHero } from "~/components/programscomponents";
+import { ListProgramItems, ProgrammHero_v2 } from "~/components/programscomponents";
 import '../components/routestyles/programs.css'
 import { MetaFunction } from "@remix-run/node";
 
@@ -14,7 +14,7 @@ export default function TaabasamuPrograms(){
 
     return(
         <div className="routesmainlayoutcontainer" id="mainprograms">
-            <ProgramsHero/>
+            <ProgrammHero_v2/>
             <ListProgramItems/>
         </div>
     )

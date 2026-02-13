@@ -1,39 +1,13 @@
-import { aboutintrotext, Corevalue, corevalues, impactstatement, Impactvalue, impactvalues, missionstatement, team_members, Teammember, teamstatement, visionstatement } from "./componentdata/aboutus";
+import { aboutherohlghttxt, aboutintrotext, Corevalue, corevalues, impactstatement, Impactvalue, impactvalues, missionstatement, team_members, Teammember, teamstatement, visionstatement } from "./componentdata/aboutus";
 import mealimage from '../images/Addde7.png'
 import visionimage from '../images/vision.jpg'
-import heroimage from '../images/myteamherov2.png'
-import { Link, useNavigate } from "@remix-run/react";
+import slum from '../images/hero2.jpg'
+import { Link } from "@remix-run/react";
 import { FacebookIcon, LinkedInIcon, TwitterIcon } from "./icons";
-import { UIEvent } from "react";
 import { ClientOnly } from "remix-utils/client-only";
 import Slider from "react-slick";
+import { DonationBtn } from "./header";
 
-export function AboutHero() {
-
-    const btn_navigator = useNavigate()
-
-    function handleClick(event: UIEvent) {
-
-        if (event.type == 'click') {
-            btn_navigator('/donate')
-        }
-    }
-
-    return (
-        <div className="routemainherocontainer">
-            <img src={heroimage} alt="teamtabasamu" />
-            <div className="routemainherotxtcontainer"
-                data-aos='fade-up'
-                data-aos-delay='600'
-                data-aos-duration='800'
-                data-aos-easing='ease-in'>
-                <h1>Raising voices of those in underdeveloped areas through community empowerment</h1>
-                <p>Understand the structure that Taabasamu is built on that makes us the hope and voice to those in slums and marginalised areas.</p>
-                <button onClick={handleClick}>Support Taabasamu</button>
-            </div>
-        </div>
-    )
-}
 
 export function AboutIntro() {
 
@@ -84,15 +58,6 @@ export function AboutCoreValues() {
 
 export function AboutMission() {
 
-    const btn_navigator = useNavigate()
-
-    function handleClick(event: UIEvent) {
-
-        if (event.type == 'click') {
-            btn_navigator('/donate')
-        }
-    }
-
     return (
         <div className="routesmainsectionlayoutcontainer"
             id="mission"
@@ -108,22 +73,12 @@ export function AboutMission() {
                 data-aos-easing='ease-in'>
                 <h3>Our Mission</h3>
                 <p>{missionstatement}</p>
-                <button onClick={handleClick}>Get Involved</button>
-            </div>
+                <DonationBtn btn_title={"Support Mission"} classname={""} />            </div>
         </div>
     )
 }
 
 export function AboutVision() {
-
-    const btn_navigator = useNavigate()
-
-    function handleClick(event: UIEvent) {
-
-        if (event.type == 'click') {
-            btn_navigator('/donate')
-        }
-    }
 
     return (
         <div className="routesmainsectionlayoutcontainer"
@@ -139,8 +94,7 @@ export function AboutVision() {
                 data-aos-easing='ease-in'>
                 <h3>Our Vision</h3>
                 <p>{visionstatement}</p>
-                <button onClick={handleClick}>Get Involved</button>
-            </div>
+                <DonationBtn btn_title={"Donate to vision"} classname={""} />            </div>
             <img src={visionimage} alt="ourvision" />
         </div>
     )
@@ -179,7 +133,6 @@ function TeamMemberItem({ member_image, member_name, member_role, socials }: Tea
 
 export function AboutTeamMembers() {
 
-    // Add carousel feature with the remix-utils clientonly component, implement carousel style
     const settings = {
         dots: true,
         infinite: true,
@@ -191,7 +144,27 @@ export function AboutTeamMembers() {
         speed: 1000,
         autoplaySpeed: 3200,
         pauseOnHover: true,
-        arrows: true
+        arrows: false,
+        responsive: [
+            {
+                breakpoint: 650,
+                settings: {
+                    slidesToShow: 1
+                }
+            },
+            {
+                breakpoint: 940,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 4
+                }
+            }
+        ]
     }
 
     return (
@@ -203,9 +176,6 @@ export function AboutTeamMembers() {
             data-aos-easing='ease-in'>
             <h3>Our Team</h3>
             <p>{teamstatement}</p>
-            {/* <div className="memberitemscontainer">
-                {team_members.map(({ member_image, member_name, member_role, socials }) => <TeamMemberItem member_image={member_image} member_name={member_name} member_role={member_role} socials={socials} key={member_name} />)}
-            </div> */}
 
             <ClientOnly>
                 {() => <div className="teamslidercontainer">
@@ -245,11 +215,41 @@ export function AboutImpact() {
             data-aos-easing='ease-in'>
             <h3>Our Impact</h3>
             <p>{impactstatement}</p>
-            <button popovertarget='donateqr' popovertargetaction='show'>Become impactful</button>
-
+            <DonationBtn btn_title={"Add Impact"} classname={""}/>
             {/* show the impact values */}
             <div className="impactvaluesmaincontainer">
                 {impactvalues.map(({ impact_image, impact_value, impact_value_definer, impact_value_assistive_txt }) => <ImpactValueItem key={impact_value} impact_image={impact_image} impact_value_definer={impact_value_definer} impact_value={impact_value} impact_value_assistive_txt={impact_value_assistive_txt} />)}
+            </div>
+        </div>
+    )
+}
+
+export function AboutHero_v2() {
+
+    return (
+        <div className="aboutnewherocontainer">
+            <h1>We Are About <em>Smiles</em> and <em>Shine</em>,
+                <br /> some say We Are {` "${aboutherohlghttxt[2]}"`}</h1>
+            <div className="newheroimgtxtcontainer">
+                <div className="newherostatscontainer">
+                    <div className="newherostat">
+                        <p>Average <strong>Population</strong> in slums.</p>
+                        <h3>4.1M</h3>
+                    </div>
+                    <div className="newherostat">
+                        <p><strong>Meals</strong> per day for most families in slums.</p>
+                        <h3>1</h3>
+                    </div>
+                    <div className="newherostat">
+                        <p>Probability of children in slums receiving <strong>Education</strong>.</p>
+                        <h3>{'22%'}</h3>
+                    </div>
+                    <div className="newherostat">
+                        <p><strong>Equipped, Accessible Medical Facilities</strong> within slums.</p>
+                        <h3>3</h3>
+                    </div>
+                </div>
+                <img src={slum} alt="slums" />
             </div>
         </div>
     )

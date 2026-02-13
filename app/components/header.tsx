@@ -1,42 +1,105 @@
 import { Link, NavLink, useNavigate } from "@remix-run/react";
 import taabasamulogo from '../images/taaabasamu2-removebgv2.png'
-import fionanobg from '../images/tabasamupandas.jpg'
-import soma from '../images/tabasammuabout.webp'
-import msomi from '../images/soma.png'
+import fionanobg from '../images/newsample3.png'
+import soma from '../images/MyTeam.png'
+import msomi from '../images/fionandimv2.png'
 // import donationhands from '../images/tabasamuhomehero.webp'
 import { FacebookIcon, InstagramIcon, LinkedInIcon, MediumIcon, TwitterIcon } from "./icons";
 import { donate_assist_txt, homeherodata, homeprogramsstats, promotext, Stats, user_testimonials } from './componentdata/homehero'
 import Slider from "react-slick";
-import { UIEvent } from "react";
+import { ChangeEvent, FormEvent, UIEvent, useEffect, useState } from "react";
 import QRCode from "react-qr-code";
-import { EmailIcon, EmailShareButton, FacebookMessengerIcon, FacebookShareButton, LinkedinIcon, LinkedinShareButton, WhatsappIcon, WhatsappShareButton } from "react-share";
+import { EmailIcon, EmailShareButton, FacebookIcon as FacebookShareIcon, FacebookShareButton, LinkedinIcon, LinkedinShareButton, WhatsappIcon, WhatsappShareButton } from "react-share";
 import { ClientOnly } from "remix-utils/client-only";
+import { assistivetext } from "./componentdata/donations";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/ReactToastify.css'
 
 export function Header() {
+
+    const [currscrn_width, setCurrScrn_Width] = useState('large')
+
+    useEffect(() => {
+
+        if (window.outerWidth <= 650) {
+            setCurrScrn_Width('small')
+        } else if (window.outerWidth < 940 && window.outerWidth >= 650) {
+            setCurrScrn_Width('medium')
+        } else {
+            setCurrScrn_Width('large')
+        }
+
+        window.addEventListener('resize', () => {
+
+            if (window.outerWidth <= 650) {
+                setCurrScrn_Width('small')
+            } else if (window.outerWidth < 940 && window.outerWidth >= 650) {
+                setCurrScrn_Width('medium')
+            } else {
+                setCurrScrn_Width('large')
+            }
+        })
+
+        console.log([currscrn_width, window.outerWidth])
+
+        return () => {
+
+        }
+    }, [currscrn_width])
+
 
     return (
         <div className="taabasamuheader"
             data-aos='slide-down'
             data-aos-offset='-1'
             data-aos-anchor-placement="top-top">
-            <Link to='/' className="headerlogocontainer">
-                <img src={taabasamulogo} alt="taabasamulogo" />
-            </Link>
+            {currscrn_width == 'large' ? <>
+                <Link to='/' className="headerlogocontainer">
+                    <img src={taabasamulogo} alt="taabasamulogo" />
+                </Link>
 
-            <nav>
-                <NavLink to='/about'>About Us</NavLink>
-                <NavLink to='/programs'>Our Programs</NavLink>
-                <NavLink to='newsnevents'>News & Events</NavLink>
-                <NavLink to='/donate'>Donate</NavLink>
-            </nav>
+                <nav>
+                    <NavLink to='/about'>About Us</NavLink>
+                    <NavLink to='/programs'>Our Programs</NavLink>
+                    <NavLink to='newsnevents'>News & Events</NavLink>
+                    <DonationBtn btn_title={"Donate"} classname={"buttonmain"} />
+                </nav>
+            </> :
+                // TODO Edit button as drawer showing navigation elements on the left
+                <button className='tabasamusmnavigation' popovertarget='tbhamburgermenu' popovertargetaction='show'>
+                    <hr />
+                    <hr />
+                    <hr />
+                </button>}
         </div>
     )
 }
 
-export function Footer() {
+export function HamburgerMenu() {
+
 
     return (
-        <div className="taabasamufooter">
+        <div className="hamburgermenu" id="tbhamburgermenu" popover='auto'>
+            <button className="hamburgerclosemenu" popovertarget='tbhamburgermenu' popovertargetaction='close'>
+                <hr />
+                <hr />
+            </button>
+            <nav>
+                <a href='/'>Home</a>
+                <a href='/about'>About Us</a>
+                <a href='/programs'>Our Programs</a>
+                <a href='newsnevents'>News & Events</a>
+            </nav>
+
+            <DonationBtn btn_title={"Donate"} classname={"buttonmain"} />
+        </div>
+    )
+}
+
+export function Footer() { 
+
+    return (
+        <div className="taabasamufooter" id="tbfooter">
             <div className="footerlinksmainconatiner">
 
                 {/* Section with quick links */}
@@ -110,42 +173,11 @@ export function Footer() {
                     <Link to='/faqs'>FAQs</Link>
                 </div>
             </div>
-
+            <hr />
             <p className="copyrightxtcontainer">
                 Copyright © 2025 Friends of TaaBasamu &nbsp;a registered 501(c)3
-                <br />
-                All Rights Reserved.
+                <strong> All Rights Reserved.</strong>
             </p>
-
-            {/* Logo & newsletter form */}
-            <div className="footerlogonewslettercontainer">
-                <Link to='/' className="footerlogolinkcontainer">
-                    <img src={taabasamulogo} alt="logo" />
-                </Link>
-
-                <form>
-                    <h5>Stay Updated</h5>
-                    <div className="formnewslettercontainer">
-                        <input type="email" placeholder="Enter your email to subscribe to our newsletter" />
-                        <button>Subscribe</button>
-                    </div>
-                </form>
-
-                <div className="footericonscontainer">
-                    <a href="/">
-                        <FacebookIcon />
-                    </a>
-                    <a href="/">
-                        <TwitterIcon />
-                    </a>
-                    <a href="/">
-                        <InstagramIcon />
-                    </a>
-                    <a href="/">
-                        <LinkedInIcon />
-                    </a>
-                </div>
-            </div>
         </div>
     )
 }
@@ -181,7 +213,7 @@ export function HomeHero() {
                 <h1>{homeherodata.maintext}</h1>
                 <p>{homeherodata.subtext}</p>
                 <div className="herobtnscontainer">
-                    <button id="homedonate" popovertarget='donateqr' popovertargetaction='show'>Donate</button>
+                    <DonationBtn btn_title={"Donate"} classname={""} />
                     <button id="homelearnmore" onClick={handlebtnClick}>Learn More</button>
                 </div>
             </div>
@@ -289,13 +321,11 @@ export function HomeProgramSection() {
 
 export function HomeGetInvolvedSection() {
 
-    const btn_navigator = useNavigate()
+    const navigation = useNavigate()
 
-    function handleClick(event: UIEvent) {
-
-        if (event.type == 'click') {
-            btn_navigator('/donate')
-        }
+    function handleContactClick(){
+        console.log('handling click, navigating to footer')
+        navigation('/about#tbfooter')
     }
 
     return (
@@ -313,8 +343,8 @@ export function HomeGetInvolvedSection() {
                 <h3>Getting Involved</h3>
                 <p>We are open to individuals who would like to support us in our mission and vision. Taabasamu has several methods of participation.</p>
                 <div className="buttoncontainer">
-                    <button onClick={handleClick}>Donate</button>
-                    <button>Contact Taabasamu</button>
+                    <DonationBtn btn_title="Get Involved" classname=""/>
+                    <button onClick={handleContactClick}>Contact Taabasamu</button>
                 </div>
             </div>
 
@@ -455,44 +485,76 @@ export function PromotionCarousel() {
     )
 }
 
+// Update layout for newsletter
 export function RouteNewsLetterContainer() {
 
-    return (
-        <div className="routenewslettercontainer routesmainsectionlayoutcontainer">
-            <h3>Get Taabasamu Updates</h3>
-            <p>{`We would love to hear from you, with this in mind, we would also like to keep you updated through our news letter.`}</p>
+    const [email_input, setEmailInput] = useState('')
 
-            <form className="newsheroformaincontainer">
+    function handleEmailInputChange(event: ChangeEvent<HTMLInputElement>){
+
+        setEmailInput(event.target.value)
+    }
+
+    function handleBtnClick(event: FormEvent<HTMLButtonElement | HTMLFormElement>) {
+        event.preventDefault()
+        
+        toast.success('Processing your subsciption', {
+            type: 'success',
+            position: 'bottom-right',
+            pauseOnHover: false,
+            pauseOnFocusLoss: true,
+            autoClose: 3000,
+            onOpen: () => { console.log('Toast is Open') }
+        })
+
+        setEmailInput('')
+    }
+
+    return (
+        <>
+        <div className="routenewslettercontainer routesmainsectionlayoutcontainer"
+            data-aos='fade-up'
+            data-aos-delay='600'
+            data-aos-duration='800'
+            data-aos-easing='ease-in'>
+
+            <div className="newslettertxtnsocialbtnscontainer">
+                <h3>Get Taabasamu Updates</h3>
+                <p>{`We would love to hear from you and you from us, with this in mind, we would also like to keep you updated through our socials and news letter.`}</p>
+                <div className="herosocialscontainer">
+
+                    <strong><em>Our Socials:</em></strong>
+
+                    <a href="/">
+                        <FacebookIcon />
+                    </a>
+                    <a href="/">
+                        <TwitterIcon />
+                    </a>
+                    <a href="/">
+                        <LinkedInIcon />
+                    </a>
+                    <a href="/">
+                        <MediumIcon />
+                    </a>
+                    <a href="/">
+                        <InstagramIcon />
+                    </a>
+                </div>
+            </div>
+
+            <form className="newsheroformaincontainer" onSubmit={handleBtnClick}>
                 <h4>Subscribe to Our News Letter</h4>
                 <fieldset>
                     <legend>Email</legend>
-                    <input type="email" placeholder="Enter your email to subscribe to our news letter" />
+                    <input type="email" onChange={handleEmailInputChange} placeholder="Enter your email to subscribe to our news letter"  value={email_input}/>
                 </fieldset>
-                <button>Subscribe</button>
-                <div className="alternativeconnectcontainer">
-                    <hr />
-                    <p>Or</p>
-                    <hr />
-                </div>
-                <div className="mynewsherosocialscontainer">
-                    <h4>Talk to Us through Our Socials</h4>
-                    <div className="herosocialscontainer">
-                        <a href="/">
-                            <FacebookIcon />
-                        </a>
-                        <a href="/">
-                            <TwitterIcon />
-                        </a>
-                        <a href="/">
-                            <LinkedInIcon />
-                        </a>
-                        <a href="/">
-                            <MediumIcon />
-                        </a>
-                    </div>
-                </div>
+                <button onSubmit={handleBtnClick}>Subscribe</button>
             </form>
         </div>
+        <ToastContainer/>
+        </>
+
     )
 }
 
@@ -502,48 +564,82 @@ export function DonateQrCode() {
 
 
     const qr_url = 'https://elewa.netlify.app/'
+    const iconsize = '3em'
 
     return (
         <div className="donationqrcodecontainer" id="donateqr" popover='auto'>
 
-            <h3>Thank You for Choosing to Donate</h3>
-            <p>{donate_assist_txt}. To learn more about donations, check our <a className="assistivelink" href="/termsandconditions">Terms and Conditions</a> or <a className="assistivelink" href="/faqs">Frequently Asked Question</a></p>
+            <div className="tabasamuqrtitlenbtncontainer">
+                <h3>Taabasamu Donation</h3>
+                <button className="btncloseqr" popovertarget='donateqr' popovertargetaction='hide'>
+                    <hr className="closeqrline" />
+                    <hr className="closeqrline" />
+                </button>
+            </div>
+            <p>{donate_assist_txt}</p>
 
-            <h6><strong><em>Share donation link via</em> {'(Scanning, Email, WhatsApp, Messanger, LinkedIn)'}</strong></h6>
-            <div className="mainqrcodensharecontainer">
-                <div className="mainqrcodeconatiner">
-                    <ClientOnly>
-                        {() => <QRCode value={qr_url} size={300} />}
-                    </ClientOnly>
-                </div>
+            <h6><strong><em>Invite others to Donate through :</em></strong></h6>
 
-                <div className="donationqrdownloadnsharecontainer">
-                    {/* Add elements to share and download qrcode */}
-                    <div className="mainsharecontainer">
-                        <EmailShareButton url={qr_url}>
-                            <EmailIcon />
-                            Email
-                        </EmailShareButton>
-                        <WhatsappShareButton url={qr_url}>
-                            <WhatsappIcon />
-                            Whatsapp
-                        </WhatsappShareButton>
-                        <FacebookShareButton url={qr_url}>
-                            <FacebookMessengerIcon />
-                            Facebook
-                        </FacebookShareButton>
-                        <LinkedinShareButton url={qr_url}>
-                            <LinkedinIcon />
-                            LinkedIn
-                        </LinkedinShareButton>
-                    </div>
-                </div>
+            <div className="mainsharecontainer">
+                <EmailShareButton
+                    url={qr_url}
+                    subject="Taabasamu Donation"
+                    body={assistivetext}>
+                    <EmailIcon
+                        round={false}
+                        size={iconsize} />
+                    {/* Email */}
+                </EmailShareButton>
+                <WhatsappShareButton
+                    url={qr_url}
+                    title="Taabasamu donatiion">
+                    <WhatsappIcon size={iconsize} />
+                    {/* Whatsapp */}
+                </WhatsappShareButton>
+                <FacebookShareButton
+                    url={qr_url}
+                    hashtag="#Taabasamu_smile_givers">
+                    <FacebookShareIcon size={iconsize} />
+                    {/* Facebook */}
+                </FacebookShareButton>
+                <LinkedinShareButton
+                    url={qr_url}
+                    title="Tabasamu donations"
+                    summary={assistivetext}>
+                    <LinkedinIcon size={iconsize} />
+                    {/* LinkedIn */}
+                </LinkedinShareButton>
             </div>
 
-            <div className="qrassistbtnscontainer">
-                <button popovertarget='donateqr' popovertargetaction='hide'>Back</button>
-                <button className="buttonmain">Proceed to donate</button>
+            <div className="mainqrcodeconatiner">
+                <ClientOnly>
+                    {() => <QRCode value={qr_url} size={250} />}
+                </ClientOnly>
             </div>
+
+            <button className="buttonmain">Proceed to donate</button>
+
+            <ul className="tabasamuqrlinkscontainer">
+                <li>
+                    <a className="assistivelink" href="/termsandconditions">Terms and Conditions</a>
+                </li>
+                <li>
+                    <a className="assistivelink" href="/faqs">Frequently Asked Question</a>
+                </li>
+            </ul>
         </div>
+    )
+}
+
+interface Donation_btn_props {
+    btn_title: string,
+    classname: string
+
+}
+
+export function DonationBtn({btn_title, classname}: Donation_btn_props){
+
+    return(
+        <button className={classname} popovertarget='donateqr' popovertargetaction='open'>{btn_title}</button>
     )
 }

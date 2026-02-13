@@ -1,19 +1,7 @@
 import { Navigate } from "@remix-run/react";
-import { eventintro, EventItem, NewsItemType, samplenews, samplevents } from "./componentdata/newsnevents";
-import { CommentIcon_v2, FacebookIcon, InstagramIcon, LikeIcon, LinkedInIcon, MediumIcon, TwitterIcon } from "./icons";
+import { EventItem, NewsItemType, samplenews, samplevents } from "./componentdata/newsnevents";
+import { BookmarkIcon, CommentIcon_v2, FacebookIcon, InstagramIcon, LikeIcon, LinkedInIcon, TwitterIcon } from "./icons";
 
-export function NewsHero() {
-
-    return (
-        <div className="routemainherocontainer">
-            <img src={eventintro.introimg} alt="heroimage" />
-            <div className="routemainherotxtcontainer">
-                <h1>STAY UPDATED AND INFORMED ON THE TAABASAMU JOURNEY</h1>
-                <p>{eventintro.introtxt}</p>
-            </div>
-        </div>
-    )
-}
 
 function NewsSectionItem({ newsimage, newstitle, source, likes, comments, link, date }: NewsItemType) {
 
@@ -58,6 +46,7 @@ export function NewsSectionContainer() {
     )
 }
 
+// Update component to include buttons for sharing and donating plus other fxn btns
 function EventSectionItem({ name, event_img, category, date, description, donation_link, location }: EventItem) {
 
     function handleClick() {
@@ -68,15 +57,27 @@ function EventSectionItem({ name, event_img, category, date, description, donati
         <div className="eventitemcontainer">
             <img src={event_img} alt="eventimage" />
             <div className="eventitemtxtcontainer">
-                <p>{date}</p>
-                <h3>{name}</h3>
-                <div className="categoryndatecontainer">
+                <div className="eventitemtitlencategorycontainer">
+                    <h3>{name}</h3>
                     <p>{category}</p>
+                </div>
+                <div className="categoryndatecontainer">
+                    <p>{date}</p>
                     <p>{location.name}</p>
                 </div>
+                <div className="eventitembtncontainer">
+                    <button className="eventbtnitem">
+                        <BookmarkIcon /> 19
+                    </button>
+                    <button className="eventbtnitem">
+                        <LikeIcon /> 32
+                    </button>
+                    <button className="buttonmain"
+                    onClick={handleClick}>
+                        Support Event
+                    </button>
+                </div>
                 <p>{description}</p>
-                <button
-                    onClick={handleClick}>Donate</button>
             </div>
         </div>
     )
@@ -92,44 +93,5 @@ export function EventSectionContainer() {
             </div>
             <button>More Events</button>
         </div>
-    )
-}
-
-export function SubscriptionForm(){
-
-    return(
-        //Add form to allow user to subscribe to news letter or connect through the socials
-            
-        <form className="newsheroformaincontainer">
-                <h3>Stay Updated</h3>
-                <p>Subscribe to our News Letter</p>
-                <fieldset>
-                    <legend>Email</legend>
-                    <input type="email" placeholder="Enter your email to subscribe to our news letter" />
-                </fieldset>
-                <button>Subscribe</button>
-                <div className="alternativeconnectcontainer">
-                    <hr />
-                    <p>Or</p>
-                    <hr />
-                </div>
-                <div className="mynewsherosocialscontainer">
-                    <p>Follow us on our socials</p>
-                    <div className="herosocialscontainer">
-                        <a href="/">
-                            <FacebookIcon/>
-                        </a>
-                        <a href="/">
-                            <TwitterIcon/>
-                        </a>
-                        <a href="/">
-                            <LinkedInIcon/>
-                        </a>
-                        <a href="/">
-                            <MediumIcon/>
-                        </a>
-                    </div>
-                </div>
-            </form>
     )
 }
