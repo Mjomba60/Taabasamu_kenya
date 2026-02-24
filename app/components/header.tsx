@@ -3,7 +3,7 @@ import taabasamulogo from '../images/taaabasamu2-removebgv2.png'
 import fionanobg from '../images/newsample3.png'
 import soma from '../images/MyTeam.png'
 import msomi from '../images/fionandimv2.png'
-// import donationhands from '../images/tabasamuhomehero.webp'
+import wrongdoorerror from '../images/wrongentry.png'
 import { FacebookIcon, InstagramIcon, LinkedInIcon, MediumIcon, TwitterIcon } from "./icons";
 import { donate_assist_txt, homeherodata, homeprogramsstats, promotext, Stats, user_testimonials } from './componentdata/homehero'
 import Slider from "react-slick";
@@ -96,7 +96,7 @@ export function HamburgerMenu() {
     )
 }
 
-export function Footer() { 
+export function Footer() {
 
     return (
         <div className="taabasamufooter" id="tbfooter">
@@ -323,7 +323,7 @@ export function HomeGetInvolvedSection() {
 
     const navigation = useNavigate()
 
-    function handleContactClick(){
+    function handleContactClick() {
         console.log('handling click, navigating to footer')
         navigation('/about#tbfooter')
     }
@@ -343,7 +343,7 @@ export function HomeGetInvolvedSection() {
                 <h3>Getting Involved</h3>
                 <p>We are open to individuals who would like to support us in our mission and vision. Taabasamu has several methods of participation.</p>
                 <div className="buttoncontainer">
-                    <DonationBtn btn_title="Get Involved" classname=""/>
+                    <DonationBtn btn_title="Get Involved" classname="" />
                     <button onClick={handleContactClick}>Contact Taabasamu</button>
                 </div>
             </div>
@@ -490,14 +490,14 @@ export function RouteNewsLetterContainer() {
 
     const [email_input, setEmailInput] = useState('')
 
-    function handleEmailInputChange(event: ChangeEvent<HTMLInputElement>){
+    function handleEmailInputChange(event: ChangeEvent<HTMLInputElement>) {
 
         setEmailInput(event.target.value)
     }
 
     function handleBtnClick(event: FormEvent<HTMLButtonElement | HTMLFormElement>) {
         event.preventDefault()
-        
+
         toast.success('Processing your subsciption', {
             type: 'success',
             position: 'bottom-right',
@@ -512,47 +512,47 @@ export function RouteNewsLetterContainer() {
 
     return (
         <>
-        <div className="routenewslettercontainer routesmainsectionlayoutcontainer"
-            data-aos='fade-up'
-            data-aos-delay='600'
-            data-aos-duration='800'
-            data-aos-easing='ease-in'>
+            <div className="routenewslettercontainer routesmainsectionlayoutcontainer"
+                data-aos='fade-up'
+                data-aos-delay='600'
+                data-aos-duration='800'
+                data-aos-easing='ease-in'>
 
-            <div className="newslettertxtnsocialbtnscontainer">
-                <h3>Get Taabasamu Updates</h3>
-                <p>{`We would love to hear from you and you from us, with this in mind, we would also like to keep you updated through our socials and news letter.`}</p>
-                <div className="herosocialscontainer">
+                <div className="newslettertxtnsocialbtnscontainer">
+                    <h3>Get Taabasamu Updates</h3>
+                    <p>{`We would love to hear from you and you from us, with this in mind, we would also like to keep you updated through our socials and news letter.`}</p>
+                    <div className="herosocialscontainer">
 
-                    <strong><em>Our Socials:</em></strong>
+                        <strong><em>Our Socials:</em></strong>
 
-                    <a href="/">
-                        <FacebookIcon />
-                    </a>
-                    <a href="/">
-                        <TwitterIcon />
-                    </a>
-                    <a href="/">
-                        <LinkedInIcon />
-                    </a>
-                    <a href="/">
-                        <MediumIcon />
-                    </a>
-                    <a href="/">
-                        <InstagramIcon />
-                    </a>
+                        <a href="/">
+                            <FacebookIcon />
+                        </a>
+                        <a href="/">
+                            <TwitterIcon />
+                        </a>
+                        <a href="/">
+                            <LinkedInIcon />
+                        </a>
+                        <a href="/">
+                            <MediumIcon />
+                        </a>
+                        <a href="/">
+                            <InstagramIcon />
+                        </a>
+                    </div>
                 </div>
-            </div>
 
-            <form className="newsheroformaincontainer" onSubmit={handleBtnClick}>
-                <h4>Subscribe to Our News Letter</h4>
-                <fieldset>
-                    <legend>Email</legend>
-                    <input type="email" onChange={handleEmailInputChange} placeholder="Enter your email to subscribe to our news letter"  value={email_input}/>
-                </fieldset>
-                <button onSubmit={handleBtnClick}>Subscribe</button>
-            </form>
-        </div>
-        <ToastContainer/>
+                <form className="newsheroformaincontainer" onSubmit={handleBtnClick}>
+                    <h4>Subscribe to Our News Letter</h4>
+                    <fieldset>
+                        <legend>Email</legend>
+                        <input type="email" onChange={handleEmailInputChange} placeholder="Enter your email to subscribe to our news letter" value={email_input} />
+                    </fieldset>
+                    <button onSubmit={handleBtnClick}>Subscribe</button>
+                </form>
+            </div>
+            <ToastContainer />
         </>
 
     )
@@ -637,9 +637,58 @@ interface Donation_btn_props {
 
 }
 
-export function DonationBtn({btn_title, classname}: Donation_btn_props){
+export function DonationBtn({ btn_title, classname }: Donation_btn_props) {
 
-    return(
+    return (
         <button className={classname} popovertarget='donateqr' popovertargetaction='open'>{btn_title}</button>
+    )
+}
+
+export function CustomErrorBoundaryComponent() {
+    // const error = useRouteError()
+
+    return (
+        <div className="mainerrorboundarycontainer"
+            style={{
+                'width': '99vw',
+                'minHeight': '100vh',
+                'display': 'flex',
+                'flexDirection': 'column',
+                'alignItems': 'center',
+                'justifyContent': 'center',
+                'backgroundColor': 'rgb(235, 242, 255)',
+            }}>
+            <h1
+                style={{
+                    'fontSize': 'calc(2.4em + 6px)',
+                    'fontWeight': '900',
+                }}>Oops !</h1>
+            <img
+                style={{
+                    'height': '30vh',
+                    'aspectRatio': '1 / 1',
+                    'width': 'auto',
+                    'padding': '1em',
+                    'boxShadow': 'inset 0px 0px 4px 0px black',
+                    'borderRadius': '0.6em',
+                }}
+                src={wrongdoorerror} alt="Error" />
+            <h4
+                style={{
+                    'fontSize': 'calc(1.3em + 2px)'
+                }}>You have wandered off</h4>
+            <a
+                style={{
+                    'fontSize': 'calc(0.8em + 5px)',
+                    'padding': '0.8em',
+                    'boxShadow': '1px 1px 5px 1px',
+                    'color': 'black',
+                    'borderRadius': '0.4em',
+                    'textDecoration': 'none',
+                    'backgroundColor': '#6f97e4',
+                    'fontWeight': 'normal',
+                }}
+                href="/">Back to navigation</a>
+        </div>
     )
 }

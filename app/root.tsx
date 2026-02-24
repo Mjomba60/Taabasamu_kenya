@@ -11,7 +11,7 @@ import AOS from 'aos';
 
 import "./tailwind.css";
 import './root.css'
-import { DonateQrCode, Footer, HamburgerMenu, Header, PromotionCarousel, RouteNewsLetterContainer } from "./components/header";
+import { CustomErrorBoundaryComponent, DonateQrCode, Footer, HamburgerMenu, Header, PromotionCarousel, RouteNewsLetterContainer } from "./components/header";
 import { useEffect } from "react";
 
 export const links: LinksFunction = () => [
@@ -38,7 +38,7 @@ export const links: LinksFunction = () => [
     href: "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css",
     type: 'text/css'
   },
-  
+
   {
     rel: 'stylesheet',
     href: 'https://unpkg.com/aos@2.3.1/dist/aos.css'
@@ -67,14 +67,14 @@ export default function App() {
 
   useEffect(() => {
     AOS.init({})
-    
+
   }, [])
-  
+
 
   return (
     <div className="taabasamubody">
       <Header />
-      <HamburgerMenu/>
+      <HamburgerMenu />
       <Outlet />
       <RouteNewsLetterContainer />
       <PromotionCarousel />
@@ -82,4 +82,11 @@ export default function App() {
       <Footer />
     </div>
   );
+}
+
+export function ErrorBoundary() {
+
+  return (
+    <CustomErrorBoundaryComponent />
+  )
 }
