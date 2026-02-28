@@ -1219,6 +1219,25 @@ body {
 @media screen and (width < 650px) {
     #donateqr.donationqrcodecontainer {
         width: 80vw;
+
+        h3{
+            font-size: calc(1.1em + 4px);
+        }
+
+        p{
+            font-size: calc(0.7em + 3px);
+        }
+
+        .assistivelink{
+            font-size: calc(0.6em + 4px);
+        }
+
+    }
+
+    .tabasamuqrtitlenbtncontainer{
+        h3{
+            font-size: calc(1.1em + 4px);
+        }
     }
 
     .mainqrcodeconatiner {
