@@ -1,5 +1,5 @@
 import { MetaFunction } from "@remix-run/node";
-import { AboutCoreValues, AboutHero_v2, AboutImpact, AboutIntro, AboutMission, AboutTeamMembers, AboutVision } from "~/components/aboutcomponents";
+import { AboutCoreValues, AboutHero_v3, AboutImpact, AboutIntro, AboutMission, AboutTeamMembers, AboutVision } from "~/components/aboutcomponents";
 import '../components/routestyles/about.css'
 
 export const meta: MetaFunction = () => {
@@ -12,7 +12,7 @@ export default function About(){
 
     return(
         <div className="routesmainlayoutcontainer" id="aboutus">
-            <AboutHero_v2/>
+            <AboutHero_v3/>
             <AboutIntro/>
             <AboutCoreValues/>
             <AboutMission/>

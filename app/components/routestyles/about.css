@@ -1,5 +1,13 @@
 /* TODO remove unused css */
 
+#aboutus{
+    .routeintrosectioncontainer{
+        p{
+            text-align: center;
+        }
+    }
+}
+
 .aboutmainsection {
     display: flex;
     flex-direction: column;
@@ -425,11 +433,10 @@
 .newherostatscontainer {
     width: -webkit-fill-available;
     display: grid;
-    gap: 1em;
-    grid-template-columns: repeat(4, 14em);
+    gap: 0.7em;
+    grid-template-columns: repeat(3, 12em);
     justify-items: center;
     align-items: center;
-    justify-content: center;
 }
 
 .newherostat {
@@ -438,6 +445,15 @@
     justify-content: space-between;
     align-items: center;
     height: -webkit-fill-available;
+
+    h3 {
+        font-size: calc(2em + 6px);
+    }
+
+    h4 {
+        font-size: calc(0.9em + 3px);
+        margin: 0.6em 0em;
+    }
 }
 
 @media screen and (width <=650px) {
@@ -446,15 +462,48 @@
         padding-top: 10vh;
     }
 
-    .newheroimgtxtcontainer{
+    .newheroimgtxtcontainer {
         width: 100%;
 
-        >img{
+        >img {
             width: 100%;
         }
     }
 
-    .newherostatscontainer{
+    .newherostatscontainer {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.herov3container {
+    display: flex;
+    width: 100vw;
+    height: 75vh;
+    position: relative;
+
+    .herov3imgcontainer {
+        position: absolute;
+        height: 100%;
+        object-fit: cover;
+        top: 0%;
+        width: 100%;
+    }
+
+    .headertxtnstatscontainer {
+        position: absolute;
+        height: 100%;
+        display: flex;
+        color: var(--secondary-text-color);
+        width: 65%;
+        background: linear-gradient(100deg, #000000cf, 70%, #0000005c, 80%, #0c0c0c14 90%, #00000000);
+        flex-direction: column;
+        justify-content: center;
+        gap: 1em;
+        padding: 1em 2em;
+
+        h1 {
+            font-size: calc(4em + 8px);
+            margin: 10vh 0em 2vh 0vh;
+        }
     }
 }

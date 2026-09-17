@@ -226,6 +226,9 @@ export function AboutImpact() {
 
 export function AboutHero_v2() {
 
+    // TODO: new hero update: large image and text as "Restoring hope and smiles in slums"
+    // Add stats to the image and text head section may incude: successful programs, successful events, number of sponsors.
+
     return (
         <div className="aboutnewherocontainer">
             <h1>We Are About <em>Smiles</em> and <em>Shine</em>,
@@ -250,6 +253,33 @@ export function AboutHero_v2() {
                     </div>
                 </div>
                 <img src={slum} alt="slums" />
+            </div>
+        </div>
+    )
+}
+
+export function AboutHero_v3() {
+
+    return(
+        <div className="herov3container">
+            <img src={slum} alt="" className="herov3imgcontainer" />
+            <div className="headertxtnstatscontainer">
+                <h1>Restoring Hope and Smiles in Slums</h1>
+                {/* <h5>{aboutherohlghttxt[6]}</h5> */}
+                <div className="newherostatscontainer">
+                    <div className="newherostat">
+                        <h4>Successful Programs</h4>
+                        <h3>19</h3>
+                    </div>
+                    <div className="newherostat">
+                        <h4>Successful Events</h4>
+                        <h3>22</h3>
+                    </div>
+                    <div className="newherostat">
+                        <h4>Sponsors</h4>
+                        <h3>54</h3>
+                    </div>
+                </div>
             </div>
         </div>
     )
