@@ -33,6 +33,12 @@ export const programitems: ProgramItem[] = [
         image: kuzaimage,
         subtitle: 'Promoting and nuturing talent through games and fun activities, engaging children and youth.',
         location: 'Kibra, Nairobi'
+    },
+    {
+        title: 'MLO',
+        image: mloimage,
+        subtitle: 'Providing food and healthy water to educational centers and schools.',
+        location: 'Kibra, Nairobi'
     }
 ]
 
