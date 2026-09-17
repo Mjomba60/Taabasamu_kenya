@@ -19,12 +19,10 @@
 .newprogramimgnstatcontainer {
     display: grid;
     grid-template-columns: repeat(3, 10em);
-    padding: 1em;
     align-self: center;
     width: 100%;
     justify-items: center;
     align-items: center;
-    justify-content: center;
     gap: 1em;
 }
 
@@ -34,7 +32,6 @@
     align-items: center;
     gap: 0.7em;
     border-radius: 0.4em;
-    box-shadow: inset 0px 1px 3px 0px var(--text-main-color);
     padding: 1em;
     width: 100%;
 
@@ -52,7 +49,7 @@
         padding-top: 10vh;
     }
 
-    .newprogramimgnstatcontainer{
+    .newprogramimgnstatcontainer {
         grid-template-columns: repeat(3, 1fr);
     }
 
@@ -82,7 +79,7 @@
     padding: 2em 5em;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1.4em;
 }
 
@@ -173,6 +170,39 @@
 
         button {
             display: block;
+        }
+    }
+}
+
+.herov3container {
+    display: flex;
+    width: 100vw;
+    height: 75vh;
+    position: relative;
+
+    .herov3imgcontainer {
+        position: absolute;
+        height: 100%;
+        object-fit: cover;
+        top: 0%;
+        width: 100%;
+    }
+
+    .headertxtnstatscontainer {
+        position: absolute;
+        height: 100%;
+        display: flex;
+        color: var(--secondary-text-color);
+        width: 65%;
+        background: linear-gradient(100deg, #000000cf, 70%, #0000005c, 80%, #0c0c0c14 90%, #00000000);
+        flex-direction: column;
+        justify-content: center;
+        gap: 1em;
+        padding: 1em 2em;
+
+        h1 {
+            font-size: calc(3em + 8px);
+            margin: 10vh 0em 2vh 0vh;
         }
     }
 }

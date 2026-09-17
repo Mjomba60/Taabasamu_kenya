@@ -4,6 +4,7 @@ import donationimg from '../images/donationv3.png'
 import education from '../images/graduation.png'
 import health from '../images/health.png'
 import nutrition from '../images/nutrition.png'
+import TwinkleB from '../images/TwinkleB.jpeg'
 import { UIEvent } from "react";
 import { DonationBtn } from "./header";
 
@@ -19,8 +20,9 @@ function SingleProgramItem({ title, image, subtitle, location }: ProgramItem) {
                     <h4>{title} PROJECT</h4>
                     <span>{location}</span>
                 </div>
-                <DonationBtn btn_title={"Support Program"} classname={""}/>            </div>
+            </div>
             <p>{subtitle}</p>
+            <DonationBtn btn_title={"Support Program"} classname={""} />
         </Link>
     )
 }
@@ -85,11 +87,21 @@ export function TitledProgramItem({ title, subtitle, image, impact, introtxt, mi
     )
 }
 
-export function ProgrammHero_v2(){
+export function TitledProgramItem_v2({ title, subtitle, image, impact, introtxt, mission, location }: ExtendedProgramItem) {
 
     return(
+        <>
+            
+        </>
+    )
+
+    }
+
+export function ProgrammHero_v2() {
+
+    return (
         <div className="newprogramherocontainer">
-            <h1>With the Community, For the Community, <br /> To the Community</h1>
+            <h1>Programs; For the Community, With the Community, <br /> To the Community</h1>
             <p>{programintro.introtxt}</p>
             <h4>Major Factors of Concern in slums that Our Organization puts effort and tries to solve through Our Programs</h4>
             <div className="newprogramimgnstatcontainer">
@@ -104,6 +116,32 @@ export function ProgrammHero_v2(){
                 <div className="newprogramimgstatitemcontainer">
                     <img src={health} alt="Health" />
                     <p><strong>Health</strong></p>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export function ProgramHero_v3() {
+
+    return (
+        <div className="herov3container">
+            <img src={TwinkleB} alt="" className="herov3imgcontainer" />
+            <div className="headertxtnstatscontainer">
+                <h1>For the Community, With the Community, To the Community</h1>
+                <div className="newprogramimgnstatcontainer">
+                    <div className="newprogramimgstatitemcontainer">
+                        <img src={nutrition} alt="nutrition" />
+                        <p><strong>Nutrition</strong></p>
+                    </div>
+                    <div className="newprogramimgstatitemcontainer">
+                        <img src={education} alt="Education" />
+                        <p><strong>Education</strong></p>
+                    </div>
+                    <div className="newprogramimgstatitemcontainer">
+                        <img src={health} alt="Health" />
+                        <p><strong>Health</strong></p>
+                    </div>
                 </div>
             </div>
         </div>
