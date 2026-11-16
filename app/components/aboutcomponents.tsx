@@ -1,5 +1,5 @@
 import { aboutherohlghttxt, aboutintrotext, Corevalue, corevalues, impactstatement, Impactvalue, impactvalues, missionstatement, team_members, Teammember, teamstatement, visionstatement } from "./componentdata/aboutus";
-import mealimage from '../images/Addde7.png'
+import mealimage from '../images/tabasammuabout.webp'
 import visionimage from '../images/vision.jpg'
 import slum from '../images/hero2.jpg'
 import { Link } from "@remix-run/react";
@@ -265,7 +265,7 @@ export function AboutHero_v3() {
             <img src={slum} alt="" className="herov3imgcontainer" />
             <div className="headertxtnstatscontainer">
                 <h1>Restoring Hope and Smiles in Slums</h1>
-                {/* <h5>{aboutherohlghttxt[6]}</h5> */}
+                <h6>Because every child deserves an equal opportunity in prosperity and the ability to show their potential through eliminating barriers that hinder their development and success. {aboutherohlghttxt[6]}</h6>
                 <div className="newherostatscontainer">
                     <div className="newherostat">
                         <h4>Successful Programs</h4>
