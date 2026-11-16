@@ -1,6 +1,6 @@
 import { Link, NavLink, useNavigate } from "@remix-run/react";
 import taabasamulogo from '../images/taaabasamu2-removebgv2.png'
-import fionanobg from '../images/newsample3.png'
+import fionanobg from '../images/TwinkleB.jpeg'
 import soma from '../images/MyTeam.png'
 import msomi from '../images/fionandimv2.png'
 import wrongdoorerror from '../images/wrongentry.png'
@@ -233,7 +233,7 @@ export function IntroductorySection() {
             data-aos-duration='800'
             data-aos-easing='ease-in'>
             <h2>Understanding Taabasamu</h2>
-            <p>Taabasamu comes from two Swahili words, “Taa” and “Tabasamu”. When translated “Taa” becomes source of light while “Tabasamu” becomes a smile or a facial expression that demonstrates happiness. These definitions align perfectly with our mission and vision. We stand with communities being a light to those in devoid. We believe in equal chances and therefore work hard towards unifying communities, we aim to remove the line separating the destitute from the others. To further understand our structure and how we work the sections below provide more information.</p>
+            <p>Taabasamu comes from two Swahili words, “Taa” and “Tabasamu”. When translated “Taa” is defined as a source of light while “Tabasamu” is defined as a smile or a facial expression that demonstrates happiness, joy , alongside there respective hypnonms. These definitions align perfectly with our mission and vision. We stand with communities being a light to those in devoid. We believe in equal chances and therefore work hard towards unifying communities, we aim to remove the line separating the destitute from the others. To further understand our structure and how we work the sections below provide more information.</p>
         </div>
     )
 }

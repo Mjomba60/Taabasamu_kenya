@@ -19,49 +19,77 @@ body {
     background-color: var(--background-main-color);
     scroll-behavior: smooth;
 
+    a {
+        font-family: 'Fira sans', 'PT Serif', sans-serif;
+    }
+
     h1 {
-        font-size: calc(2em + 2px);
+        font-family: 'PT Serif', 'Fira sans', sans-serif;
+        font-size: calc(3.2em + 2px);
         font-weight: 900;
-        margin: 0.8em 0em;
+        margin: 0.3em 0em;
     }
 
     h2 {
+        font-family: 'fira sans', 'PT Serif', sans-serif;
         font-size: calc(1.8em + 6px);
         font-weight: 700;
         margin: 0.6em 0em;
     }
 
     h3 {
+        font-family: 'fira sans', 'PT Serif', sans-serif;
         font-size: calc(1.6em + 6px);
         font-weight: 700;
         margin: 0.5em 0em;
     }
 
     h4 {
+        font-family: 'fira sans', 'PT Serif', sans-serif;
         font-size: calc(1.1em + 3px);
         font-weight: 600;
         margin: 0.9em 0em;
     }
 
     h5 {
+        font-family: 'fira sans', 'PT Serif', sans-serif;
         font-size: calc(0.9em + 7px);
         font-weight: 500;
     }
 
     h6 {
+        font-family: 'PT Serif', 'Fira sans', sans-serif;
         font-size: calc(0.7em + 6px);
         font-weight: 400;
     }
 
     p {
+        font-family: 'Fira sans', 'PT Serif', sans-serif;
         font-size: calc(0.7em + 5px);
         font-weight: 400;
     }
 
     button {
+        font-family: 'Fira sans', 'PT Serif', sans-serif;
         padding: 0.7em 1em;
-        border-radius: 0.4em;
+        border-radius: 0.9em;
         width: fit-content;
+    }
+
+    legend {
+        font-family: 'Fira sans', 'PT Serif', sans-serif;
+    }
+
+    input {
+        font-family: 'PT Serif', 'Fira sans', sans-serif;
+    }
+
+    span{
+        font-family: 'PT Serif', 'Fira sans', sans-serif;
+    }
+
+    ul{
+        font-family: 'PT Serif', 'Fira sans', sans-serif;
     }
 }
 
@@ -174,7 +202,7 @@ body {
         margin: 0em 0em;
         text-align: center;
 
-        &.copyrightxtcontainer{
+        &.copyrightxtcontainer {
             display: none;
         }
     }
@@ -1220,22 +1248,22 @@ body {
     #donateqr.donationqrcodecontainer {
         width: 80vw;
 
-        h3{
+        h3 {
             font-size: calc(1.1em + 4px);
         }
 
-        p{
+        p {
             font-size: calc(0.7em + 3px);
         }
 
-        .assistivelink{
+        .assistivelink {
             font-size: calc(0.6em + 4px);
         }
 
     }
 
-    .tabasamuqrtitlenbtncontainer{
-        h3{
+    .tabasamuqrtitlenbtncontainer {
+        h3 {
             font-size: calc(1.1em + 4px);
         }
     }
