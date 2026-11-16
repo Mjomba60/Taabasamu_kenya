@@ -36,10 +36,11 @@
     width: 100%;
 
     >img {
-        height: 5em;
+        height: 4em;
         aspect-ratio: 1/1;
         width: auto;
         object-fit: cover;
+        filter: contrast(1.5);
     }
 }
 
@@ -144,7 +145,7 @@
     }
 
     button {
-        width: fit-content;
+        width: 100%;
         text-align: center;
         padding: 0.7em 1em;
         border-radius: 0.4em;
@@ -196,13 +197,24 @@
         width: 65%;
         background: linear-gradient(100deg, #000000cf, 70%, #0000005c, 80%, #0c0c0c14 90%, #00000000);
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-end;
         gap: 1em;
         padding: 1em 2em;
 
         h1 {
-            font-size: calc(3em + 8px);
             margin: 10vh 0em 2vh 0vh;
+        }
+    }
+}
+
+@media screen and (width <=650px){
+    .herov3container{
+
+        .headertxtnstatscontainer {
+            width: 100%;
+            background: #000000a3;
+            justify-content: flex-end;
+            padding: 1em 1em;
         }
     }
 }
