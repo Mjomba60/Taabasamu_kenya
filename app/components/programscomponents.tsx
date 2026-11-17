@@ -1,9 +1,10 @@
 import { Link, useNavigate } from "@remix-run/react";
 import { ExtendedProgramItem, programintro, ProgramItem, programitems } from "./componentdata/tabasamuprograms";
-import donationimg from '../images/donationv3.png'
-import education from '../images/graduation.png'
-import health from '../images/health.png'
-import nutrition from '../images/nutrition.png'
+// import donationimg from '../images/donationv3.png'
+import education from '../images/Smiling Children Reading Together.png'
+import health from '../images/Glossy Heart Health Emblem.png'
+import nutrition from '../images/nutrition_icon_01_transparent.png'
+import TwinkleB from '../images/TwinkleB.jpeg'
 import { UIEvent } from "react";
 import { DonationBtn } from "./header";
 
@@ -19,8 +20,9 @@ function SingleProgramItem({ title, image, subtitle, location }: ProgramItem) {
                     <h4>{title} PROJECT</h4>
                     <span>{location}</span>
                 </div>
-                <DonationBtn btn_title={"Support Program"} classname={""}/>            </div>
+            </div>
             <p>{subtitle}</p>
+            <DonationBtn btn_title={"Support Program"} classname={""} />
         </Link>
     )
 }
@@ -51,9 +53,20 @@ export function TitledProgramItem({ title, subtitle, image, impact, introtxt, mi
 
     return (
         <>
-            <img src={image} alt="projectimage" />
+            <div className="headerprogramitemoherocontainer">
+                <img src={image} alt="projectimge" className="programitemheroimg" />
+                <div className="programitemherotxtcontainer">
+                    <h2>{title} PROJECT INITIATIVE</h2>
+                    <h5>{subtitle}</h5>
+                    <span>{location}</span>
+                    <button className="buttonmain" onClick={handleClick}>
+                        Donate to Project
+                    </button>
+                </div>
+            </div>
+            {/* <img src={image} alt="projectimage" /> */}
             <div className="titledprogtxtcontainer">
-                <div className="titledprogrammaintxtnbtncontainer">
+                {/* <div className="titledprogrammaintxtnbtncontainer">
                     <div className="titledmaintxtcontainer">
                         <h2>{title} PROJECT INITIATIVE</h2>
                         <h5>{subtitle}</h5>
@@ -63,7 +76,7 @@ export function TitledProgramItem({ title, subtitle, image, impact, introtxt, mi
                         <img src={donationimg} alt="donationimage" />
                         Donate to Project
                     </button>
-                </div>
+                </div> */}
                 <p>{introtxt}</p>
                 <div className="missioncontainer">
                     <h3>Project Goals</h3>
@@ -85,11 +98,11 @@ export function TitledProgramItem({ title, subtitle, image, impact, introtxt, mi
     )
 }
 
-export function ProgrammHero_v2(){
+export function ProgrammHero_v2() {
 
-    return(
+    return (
         <div className="newprogramherocontainer">
-            <h1>With the Community, For the Community, <br /> To the Community</h1>
+            <h1>Programs; For the Community, With the Community, <br /> To the Community</h1>
             <p>{programintro.introtxt}</p>
             <h4>Major Factors of Concern in slums that Our Organization puts effort and tries to solve through Our Programs</h4>
             <div className="newprogramimgnstatcontainer">
@@ -104,6 +117,33 @@ export function ProgrammHero_v2(){
                 <div className="newprogramimgstatitemcontainer">
                     <img src={health} alt="Health" />
                     <p><strong>Health</strong></p>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export function ProgramHero_v3() {
+
+    return (
+        <div className="herov3container">
+            <img src={TwinkleB} alt="" className="herov3imgcontainer" />
+            <div className="headertxtnstatscontainer">
+                <h1>Supporting community growth and Development </h1>
+                <p>We stand to address factors that affect the well-being of communities including children and adults in slum areas with our main focus being in Kibra. For the Community, With the Community, To the Community.</p>
+                <div className="newprogramimgnstatcontainer">
+                    <div className="newprogramimgstatitemcontainer">
+                        <img src={nutrition} alt="nutrition" />
+                        <p><strong>Nutrition</strong></p>
+                    </div>
+                    <div className="newprogramimgstatitemcontainer">
+                        <img src={education} alt="Education" />
+                        <p><strong>Education</strong></p>
+                    </div>
+                    <div className="newprogramimgstatitemcontainer">
+                        <img src={health} alt="Health" />
+                        <p><strong>Health</strong></p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -219,3 +219,36 @@
         }
     }
 }
+
+.headerprogramitemoherocontainer{
+    display: flex;
+    width: 100vw;
+    height: 50vh;
+    position: relative;
+
+    .programitemheroimg {
+        position: absolute;
+        height: 100%;
+        object-fit: cover;
+        top: 0%;
+        width: 100%;
+    }
+
+    .programitemherotxtcontainer {
+        position: absolute;
+        height: 100%;
+        display: flex;
+        color: var(--secondary-text-color);
+        width: 65%;
+        background: linear-gradient(100deg, #000000cf, 70%, #0000005c, 80%, #0c0c0c14 90%, #00000000);
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 1em;
+        padding: 1em 2em;
+
+        h1 {
+            font-size: calc(3em + 8px);
+            margin: 10vh 0em 2vh 0vh;
+        }
+    }
+}
