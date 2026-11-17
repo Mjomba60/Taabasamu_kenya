@@ -2,6 +2,7 @@
 // Image should be one that can be interpreted as donation image and used to promote donations.
 import taabasamumainlogo from '../images/taaabasamu2-removebgv2.png'
 import { heroinfo } from "./componentdata/donations";
+import under_construction from '../images/Work in Progress Animation Frames.gif'
 
 // introtext should be welcoming, talk about how donations work and encourage readers to make donations
 export function HeroDonationSection() {
@@ -182,6 +183,18 @@ export function DonationFormSectionV2() {
                     </div>
                 </form>
             </div>
+        </div>
+    )
+}
+
+export function DonationPnedingSection(){
+
+    return(
+        <div className="newdonationpendingsect">
+            <img src={under_construction} alt="Under Construction" />
+            <h3>This section is under construction and will be available soon.</h3>
+            <p>Please check back later for updates and new features. We appreciate your patience and understanding as we work to improve our donation experience.</p>
+            <p>Browse our <a href="/programs">programs</a> while you wait!</p>
         </div>
     )
 }

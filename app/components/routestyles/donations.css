@@ -1,5 +1,19 @@
 .taabasamudonatemaincontainer {
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    padding: 2em 1em;
+    color: var(--text-main-color);
+    align-items: center;
+
+}
+
+.newdonationpendingsect {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .herodonationcontainer {
@@ -9,7 +23,7 @@
 
     img {
         width: 100%;
-        height: 100%;
+        height: 100%;n
         position: absolute;
         left: 0%;
         z-index: 8;
