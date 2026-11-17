@@ -1,4 +1,4 @@
-import { DonationFormSectionV2 } from "~/components/donationcomponents";
+import { DonationFormSectionV2, DonationPnedingSection } from "~/components/donationcomponents";
 import '../components/routestyles/donations.css'
 import { MetaFunction } from "@remix-run/node";
 
@@ -16,7 +16,7 @@ export default function TaabasamuDonate(){
         <div className="taabasamudonatemaincontainer">
             {/* <HeroDonationSection/>
             <DonationFormSection/> */}
-            <DonationFormSectionV2/>
+            <DonationPnedingSection/>
         </div>
     )
 }
