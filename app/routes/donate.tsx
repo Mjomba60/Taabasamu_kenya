@@ -1,4 +1,4 @@
-import { DonationFormSectionV2, DonationPnedingSection } from "~/components/donationcomponents";
+import { DonationPnedingSection } from "~/components/donationcomponents";
 import '../components/routestyles/donations.css'
 import { MetaFunction } from "@remix-run/node";
 
